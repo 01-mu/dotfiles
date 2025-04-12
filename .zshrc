@@ -4,8 +4,9 @@
 #--------------------------------------------------------------------------------
 # プロプトの表示をカレントディレクトリ(%~)のみに絞る
 PROMPT='%F{cyan}%~ %#%f '
-# lsの色 (default:exfxcxdxbxegedabagacad)
-eval "$(dircolors -b)"
+# lsの色設定 reset->directoryに01:Bold 35:Purple
+LS_COLORS='rs=0:di=01;35:';
+export LS_COLORS
 
 #--------------------------------------------------------------------------------
 # Alias
