@@ -4,12 +4,12 @@
 #--------------------------------------------------------------------------------
 # プロプトの表示をカレントディレクトリ(%~)のみに絞る
 PROMPT='%F{cyan}%~ %#%f '
+# lsの色 (default:exfxcxdxbxegedabagacad)
+eval "$(dircolors -b)"
 
 #--------------------------------------------------------------------------------
 # Alias
 #--------------------------------------------------------------------------------
-# lsの色 (default:exfxcxdxbxegedabagacad)
-eval "$(dircolors -b)"
 alias ls='ls --color=auto'
 alias ll='ls -l --color=auto'
 alias la='ls -la --color=auto'
@@ -18,7 +18,7 @@ alias la='ls -la --color=auto'
 # History
 #--------------------------------------------------------------------------------
 # history
-HISTFILE=$HOME/.zsh-history # 履歴を保存するファイル
+HISTFILE=$HOME/.zsh_history # 履歴を保存するファイル
 HISTSIZE=100000             # メモリ上に保存する履歴のサイズ
 SAVEHIST=1000000            # 上述のファイルに保存する履歴のサイズ
 # share .zshhistory
