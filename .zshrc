@@ -15,6 +15,9 @@ alias ls='ls --color=auto'
 alias ll='ls -l --color=auto'
 alias la='ls -la --color=auto'
 alias grep='grep --color=auto'
+alias ..='cd ../'
+alias ...='cd ../../'
+alias cat='bat'
 
 #--------------------------------------------------------------------------------
 # History
