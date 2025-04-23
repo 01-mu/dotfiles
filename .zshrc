@@ -65,5 +65,4 @@ alias grep='grep --color=auto'
 # easy to use
 alias ..='cd ../'
 alias ...='cd ../../'
-alias cat='bat'
 alias j=z
