@@ -66,3 +66,11 @@ alias grep='grep --color=auto'
 alias ..='cd ../'
 alias ...='cd ../../'
 alias j=z
+
+# docker
+alias dc='docker compose'
+alias dcb='docker compose build'
+alias dcr='docker compose restart'
+alias dcu='docker compose up -d'
+alias dce='docker compose exec'
+alias dcd='docker compose down'
