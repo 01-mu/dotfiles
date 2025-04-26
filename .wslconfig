@@ -1,10 +1,6 @@
 # C:\Users\[user_name] 直下に本ファイルを置くこと
 
 [wsl2]
-memory=6GB # メモリ節約
+memory=6GB
 swap=0GB
 processors=4
-
-[network]
-generateHosts = false  # hosts ファイルの自動生成を止める
-generateResolvConf = false  # DNS 設定ファイルの自動生成も止める（任意）
