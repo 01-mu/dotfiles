@@ -1,5 +1,5 @@
 
----------------------------------------------------------------------------------
+#--------------------------------------------------------------------------------
 # initialization
 #---------------------------------------------------------------------------------
 [ -d ./workspace ] && cd workspace
@@ -54,8 +54,11 @@ function chpwd() {
 #--------------------------------------------------------------------------------
 # Tool Path
 #--------------------------------------------------------------------------------
-# Homebrew
-# eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)" for Linuxbrew
+# only run on Linux
+if [[ "$(uname)" == "Linux" ]]; then
+  # for Linuxbrew
+  eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+fi
 # z command
 source `brew --prefix`/etc/profile.d/z.sh
 
