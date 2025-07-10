@@ -77,6 +77,10 @@ alias ls='ls --color=auto'
 alias ll='ls -l --color=auto'
 alias la='ls -la --color=auto'
 alias grep='grep --color=auto'
+
+# shortcuts
+alias lg='ls -la --color=auto | grep'
+
 # easy to use
 alias ..='cd ../'
 alias ...='cd ../../'
