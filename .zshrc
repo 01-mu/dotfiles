@@ -57,6 +57,9 @@ function chpwd() {
 # initialize zoxide(= z command)
 eval "$(zoxide init zsh)"
 
+# initialize mise
+eval "$(~/.local/bin/mise activate zsh)"
+
 # stopped to use brew on linux
 ## only run on Linux
 #if [[ "$(uname)" == "Linux" ]]; then
@@ -104,4 +107,5 @@ else
 fi
 unset __conda_setup
 # <<< conda initialize <<<
+
 
