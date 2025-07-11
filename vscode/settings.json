@@ -39,15 +39,17 @@
         "python": false
     },
     "indentRainbow.includedLanguages": [
-        "python",
+        "html",
+        "python"
     ],
+    "indentRainbow.indicatorStyle": "light",
     "indentRainbow.colors": [
-      "#FF000044",
-      "#FF7F0044",
-      "#FFFF0044",
-      "#00FF0044",
-      "#0000FF44",
-      "#4B008244",
-      "#9400D344"
+        "rgba(128,  64,  64, 1)",
+        "rgba(128,  96,  32, 1)",
+        "rgba(128, 128,  32, 1)",
+        "rgba( 32, 128,  32, 1)",
+        "rgba( 32,  64, 128, 1)",
+        "rgba(128,  64, 128, 1)"
     ],
+    "indentRainbow.lightIndicatorStyleLineWidth": 1.5,
 }
