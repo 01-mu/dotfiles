@@ -42,12 +42,12 @@
         "python",
     ],
     "indentRainbow.colors": [
-      "#FF000044", // Red, more transparent
-      "#FF7F0044", // Orange, more transparent
-      "#FFFF0044", // Yellow, more transparent
-      "#00FF0044", // Green, more transparent
-      "#0000FF44", // Blue, more transparent
-      "#4B008244", // Indigo, more transparent
-      "#9400D344"  // Violet, more transparent
+      "#FF000044",
+      "#FF7F0044",
+      "#FFFF0044",
+      "#00FF0044",
+      "#0000FF44",
+      "#4B008244",
+      "#9400D344"
     ],
 }
