@@ -54,11 +54,16 @@ function chpwd() {
 #--------------------------------------------------------------------------------
 # Tool Path
 #--------------------------------------------------------------------------------
-# initialize zoxide(= z command)
-eval "$(zoxide init zsh)"
 
 # initialize mise
-eval "$(~/.local/bin/mise activate zsh)"
+if [[ "$(uname)" == "Darwin" ]]; then # for macOS
+  eval "$(/opt/homebrew/bin/mise activate zsh)"
+else
+  eval "$(~/.local/bin/mise activate zsh)"
+fi
+
+# initialize zoxide(= z command)
+eval "$(zoxide init zsh)"
 
 # stopped to use brew on linux
 ## only run on Linux
