@@ -65,15 +65,6 @@ fi
 # initialize zoxide(= z command)
 eval "$(zoxide init zsh)"
 
-# stopped to use brew on linux
-## only run on Linux
-#if [[ "$(uname)" == "Linux" ]]; then
-#  # for Linuxbrew
-#  eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-#fi
-#z command
-#source `brew --prefix`/etc/profile.d/z.sh
-
 #--------------------------------------------------------------------------------
 # Alias
 #--------------------------------------------------------------------------------
