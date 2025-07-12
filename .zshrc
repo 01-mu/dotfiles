@@ -100,4 +100,4 @@ alias dce='docker compose exec'
 alias dcd='docker compose down'
 
 # python
-alias uvmain='uvicorn main:app --reload'
+alias uvimain='uvicorn main:app --reload'
