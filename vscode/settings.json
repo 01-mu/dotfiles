@@ -32,11 +32,7 @@
     "workbench.colorTheme": "Noctis Azureus",
     "editor.renderWhitespace": "all",
     "github.copilot.enable": {
-        "*": true,
-        "plaintext": false,
-        "markdown": false,
-        "scminput": false,
-        "python": false
+        "*": true
     },
     "indentRainbow.includedLanguages": [
         "html",
