@@ -55,6 +55,11 @@ function chpwd() {
 # Tool Path
 #--------------------------------------------------------------------------------
 
+# initialize linuxbrew
+if [[ "$(uname)" == "Linux" ]]; then
+  eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+fi
+
 # initialize mise
 if [[ "$(uname)" == "Darwin" ]]; then # for macOS
   eval "$(/opt/homebrew/bin/mise activate zsh)"
@@ -91,3 +96,4 @@ alias uvimain='uvicorn main:app --reload'
 
 # java
 export PATH="$HOME/.local/springboot/bin:$PATH"
+
