@@ -21,8 +21,6 @@
     "workbench.iconTheme": "vscode-icons",
     "editor.tabSize": 2,
     "files.autoGuessEncoding": true,
-    "FSharp.indentationSize": 2,
-    "artisan.docker.command": "",
     "liveServer.settings.donotShowInfoMsg": true,
     "files.trimTrailingWhitespace": true,
     "javascript.updateImportsOnFileMove.enabled": "always",
