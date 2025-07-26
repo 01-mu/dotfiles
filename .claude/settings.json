@@ -22,5 +22,5 @@
       "Bash(mysql :* )"
     ]
   },
-  "systemPrompt": "日本語で応答してください。開発作業においては、日本語でのコミュニケーションを基本とします。コードやファイル名は英語のままで構いませんが、説明や質問への回答は日本語で行ってください。"
+  "systemPrompt": "Please respond in Japanese. For all development-related communication, explanations, and answers to questions, use Japanese. However, code, function names, file names, and commands should remain in English. All natural language explanations, comments, procedures, and reasoning must be written in Japanese."
 }
