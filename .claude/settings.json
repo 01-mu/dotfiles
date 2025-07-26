@@ -21,6 +21,5 @@
       "Bash(psql :* )",
       "Bash(mysql :* )"
     ]
-  },
-  "systemPrompt": "Please respond in Japanese. For all development-related communication, explanations, and answers to questions, use Japanese. However, code, function names, file names, and commands should remain in English. All natural language explanations, comments, procedures, and reasoning must be written in Japanese."
+  }
 }
