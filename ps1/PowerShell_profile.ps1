@@ -4,6 +4,9 @@ function ll { Get-ChildItem -Force -File | Format-Table Name, Length, LastWriteT
 function la { Get-ChildItem -Force }
 function grep { param($pattern); Select-String -Pattern $pattern }
 function lg { Get-ChildItem -Force | Select-String $args }
+function .. { Set-Location .. }
+function ... { Set-Location ..\.. }
+
 
 if (Test-Path "$PWD\workspace") {
   Set-Location "$PWD\workspace"
