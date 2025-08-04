@@ -61,10 +61,9 @@ if [[ "$(uname)" == "Linux" ]]; then
 fi
 
 # initialize mise
-if [[ "$(uname)" == "Darwin" ]]; then # for macOS
-  eval "$(/opt/homebrew/bin/mise activate zsh)"
-else
-  eval "$(~/.local/bin/mise activate zsh)"
+# initialize mise
+if command -v mise >/dev/null 2>&1; then
+  eval "$(mise activate zsh)"
 fi
 
 # initialize zoxide(= z command)
