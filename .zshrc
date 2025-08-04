@@ -1,5 +1,10 @@
 
 #--------------------------------------------------------------------------------
+# initialization
+#---------------------------------------------------------------------------------
+[ -d ./workspace ] && cd workspace
+
+#--------------------------------------------------------------------------------
 # Display
 #--------------------------------------------------------------------------------
 # only show current directory(%~) in prompt
@@ -49,21 +54,46 @@ function chpwd() {
 #--------------------------------------------------------------------------------
 # Tool Path
 #--------------------------------------------------------------------------------
-# Homebrew
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-# z command
-source `brew --prefix`/etc/profile.d/z.sh
+
+# initialize linuxbrew
+if [[ "$(uname)" == "Linux" ]]; then
+  eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+fi
+
+# initialize mise
+if [[ "$(uname)" == "Darwin" ]]; then # for macOS
+  eval "$(/opt/homebrew/bin/mise activate zsh)"
+else
+  eval "$(~/.local/bin/mise activate zsh)"
+fi
+
+# initialize zoxide(= z command)
+eval "$(zoxide init zsh)"
 
 #--------------------------------------------------------------------------------
 # Alias
 #--------------------------------------------------------------------------------
-# color
+# easy to use
 alias ls='ls --color=auto'
 alias ll='ls -l --color=auto'
 alias la='ls -la --color=auto'
 alias grep='grep --color=auto'
-# easy to use
+alias lg='ls -la --color=auto | grep'
 alias ..='cd ../'
 alias ...='cd ../../'
-alias cat='bat'
 alias j=z
+
+# docker
+alias dc='docker compose'
+alias dcb='docker compose build'
+alias dcr='docker compose restart'
+alias dcu='docker compose up -d'
+alias dce='docker compose exec'
+alias dcd='docker compose down'
+
+# python
+alias uvimain='uvicorn main:app --reload'
+
+# java
+export PATH="$HOME/.local/springboot/bin:$PATH"
+
