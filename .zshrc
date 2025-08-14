@@ -60,7 +60,8 @@ if [[ "$(uname)" == "Linux" ]]; then
   eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 fi
 
-# initialize mise
+export PATH="$HOME/.local/share/mise/shims:$PATH"
+
 # initialize mise
 if command -v mise >/dev/null 2>&1; then
   eval "$(mise activate zsh)"
