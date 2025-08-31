@@ -82,6 +82,7 @@ alias lg='ls -la --color=auto | grep'
 alias ..='cd ../'
 alias ...='cd ../../'
 alias j=z
+alias upall='brew update && brew upgrade && sudo apt update && sudo apt upgrade -y'
 
 # docker
 alias dc='docker compose'
