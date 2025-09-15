@@ -123,3 +123,11 @@ export ADB_TRACE=adb
 export EXPO_DEBUG=1
 export ANDROID_SERIAL=emulator-5554
 export REACT_NATIVE_PACKAGER_HOSTNAME=$(ip addr show eth0 | grep -oP '(?<=inet\s)\d+(\.\d+){3}')
+
+#--------------------------------------------------------------------------------
+# Japanese Character
+#--------------------------------------------------------------------------------
+export GTK_IM_MODULE=fcitx
+export QT_IM_MODULE=fcitx
+export XMODIFIERS=@im=fcitx
+
