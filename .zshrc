@@ -8,7 +8,7 @@
 # Display
 #--------------------------------------------------------------------------------
 # only show current directory(%~) in prompt
-PROMPT='%F{cyan}%~ %#%f '
+PROMPT='%F{cyan}%1~ %#%f '
 # ls coloring
 # reset -> directory setting 01:Bold 35:Purple
 LS_COLORS='rs=0:di=01;35:';
@@ -47,7 +47,10 @@ setopt list_packed
 setopt hist_ignore_dups
 # when cd, automatically run ls
 function chpwd() {
+  # update terminal title
   echo -ne "\033]0;$(pwd | rev | awk -F \/ '{print "/"$1"/"$2}'| rev)\007"
+  # show current directory info
+  print -P "%~"
   ls
 }
 
