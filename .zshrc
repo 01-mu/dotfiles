@@ -83,6 +83,27 @@ alias ..='cd ../'
 alias ...='cd ../../'
 alias j=z
 
+# git
+alias g='git'
+alias gs='git status'
+alias ga='git add'
+alias gaa='git add .'
+alias gap='git add -p'
+alias gc='git commit'
+alias gcm='git commit -m'
+alias gca='git commit --amend'
+alias gcan='git commit --amend --no-edit'
+alias gsw='git switch'
+alias gswc='git switch -c'
+alias gb='git branch'
+alias gbd='git branch -d'
+alias gcur='git branch --show-current'
+alias gd='git diff'
+alias gdc='git diff --cached'
+alias glg='git log --oneline --decorate --graph --all'
+alias gundo='git reset --soft HEAD~1'
+alias grefl='git reflog'
+
 # docker
 alias dc='docker compose'
 alias dcb='docker compose build'
