@@ -82,23 +82,6 @@ alias lg='ls -la --color=auto | grep'
 alias ..='cd ../'
 alias ...='cd ../../'
 alias j=z
-upall() {
-  sudo -v
-
-  if command -v apt >/dev/null 2>&1; then
-    echo -e "\n\033[1;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-    echo -e "📦  \033[1;36mAPT update...\033[0m"
-    echo -e "\033[1;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-    sudo apt update && sudo apt upgrade -y
-  fi
-
-  if command -v brew >/dev/null 2>&1; then
-    echo -e "\n\033[1;35m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-    echo -e "🍺  \033[1;35mHomebrew update...\033[0m"
-    echo -e "\033[1;35m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-    brew update && brew upgrade
-  fi
-}
 
 # docker
 alias dc='docker compose'
@@ -130,4 +113,3 @@ export PATH="$HOME/.local/springboot/bin:$PATH"
 export GTK_IM_MODULE=fcitx
 export QT_IM_MODULE=fcitx
 export XMODIFIERS=@im=fcitx
-
