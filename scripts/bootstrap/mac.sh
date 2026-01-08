@@ -27,15 +27,25 @@ formulae=(
   gh
   git
   gmp
+  gnupg
+  gnutls
   go
   icu4c@78
   isl
   krb5
   lazydocker
+  libassuan
   libevent
+  libgcrypt
+  libgpg-error
   libiconv
+  libidn2
+  libksba
   libmpc
+  libnghttp2
+  libtasn1
   libunistring
+  libusb
   libuv
   libyaml
   lpeg
@@ -48,18 +58,24 @@ formulae=(
   mysql
   ncurses
   neovim
+  nettle
   nginx
   nkf
+  npth
   openssl@3
+  p11-kit
   pcre2
+  pinentry
   pkgconf
   postgresql@14
   protobuf
   readline
+  ripgrep
   ruby
   ruby-build
   tmux
   tree-sitter@0.25
+  unbound
   unibilium
   usage
   utf8proc
@@ -70,20 +86,29 @@ formulae=(
 )
 
 casks=(
+  android-commandlinetools
+  asana
   brave-browser
+  chatgpt-atlas
+  codex
   coteditor
   dbeaver-community
   discord
   docker
   docker-desktop
+  font-blex-mono-nerd-font
   google-chrome
+  ghostty
   iterm2
+  microsoft-teams
   mono-mdk-for-visual-studio
   obsidian
   pgadmin4
   powershell
   scroll-reverser
+  tableplus
   visual-studio-code
+  warp
   zoom
 )
 
