@@ -11,6 +11,14 @@ stow -n nvim ghostty
 stow nvim ghostty
 ```
 
+## Windows setup (PowerShell)
+
+```powershell
+Set-ExecutionPolicy -Scope CurrentUser RemoteSigned
+cd $HOME\dotfiles
+.\windows\bootstrap.ps1
+```
+
 ## setup script
 
 ```shell
