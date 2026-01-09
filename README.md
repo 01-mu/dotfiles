@@ -1,14 +1,11 @@
 # dotfiles
 
-This repo is the source of truth for my dotfiles. `$HOME` is generated via GNU
-stow, so edit files only under `~/dotfiles`.
+This repo is the source of truth for my dotfiles. Edit files only under
+`~/dotfiles`.
 
-Prereq: install GNU stow first.
+Prereq: install GNU stow.
 
 ## Stow usage
-
-- Use `-n` to preview changes before applying.
-- Run commands from the repo root.
 
 ```shell
 cd ~/dotfiles
@@ -38,22 +35,12 @@ Run Codex through the sandboxed wrapper:
 codex-safe
 ```
 
-Check execpolicy rules:
+Optional safety checks:
 
 ```shell
 codex execpolicy check --pretty --rules ~/.codex/rules/00-baseline.rules -- sudo ls
-```
-
-Verify secret reads are blocked (should fail on macOS sandbox):
-
-```shell
 sandbox-exec -f ~/.codex/sandbox/deny-secrets.sb cat .env
 ```
-
-Limitations:
-- Rules gate command execution only; they do not block file reads.
-- macOS uses `sandbox-exec` deny rules; Linux uses bwrap/firejail best-effort.
-- `.env` blocking is strongest on macOS; Linux fallback cannot block globbed files everywhere.
 
 ## VS Code (stow)
 
