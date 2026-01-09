@@ -2,7 +2,7 @@
 font-size = 14
 adjust-cell-height = 10%
 font-family = "BlexMono Nerd Font Mono"
-theme = "Catppuccin Mocha"
+theme = "Catppuccin Macchiato"
 
 # --- Window / Effects ---
 background-opacity = 0.80
