@@ -11,6 +11,14 @@ stow -n nvim ghostty zsh vim git
 stow nvim ghostty zsh vim git
 ```
 
+## Codex prompts (stow)
+
+```shell
+cd ~/dotfiles
+stow -n codex -t ~/.codex
+stow codex -t ~/.codex
+```
+
 ## VS Code (stow)
 
 ### macOS
@@ -51,10 +59,4 @@ chmod +x setup.sh
 
 ```shell
 ./scripts/bootstrap/mac.sh
-```
-
-### Codex prompts (stow to ~/.codex)
-
-```shell
-./scripts/agents/link.sh
 ```
