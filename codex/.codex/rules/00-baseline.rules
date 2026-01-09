@@ -1,61 +1,168 @@
-# Codex execpolicy baseline rules.
-# Format: YAML-style rules with match/not_match regex examples.
-version: 1
-rules:
-  - action: forbid
-    match: '^\s*sudo\b'
-    not_match: '^\s*sudo\s+--help\b'
-  - action: forbid
-    match: '^\s*su\b'
-    not_match: '^\s*su\s+--help\b'
-  - action: forbid
-    match: '^\s*rm\b'
-    not_match: '^\s*rm\s+--help\b'
-  - action: forbid
-    match: '^\s*dd\b'
-    not_match: '^\s*dd\s+--help\b'
-  - action: forbid
-    match: '^\s*mkfs\b'
-    not_match: '^\s*mkfs\s+--help\b'
-  - action: forbid
-    match: '^\s*mount\b'
-    not_match: '^\s*mount\s+--help\b'
-  - action: forbid
-    match: '^\s*umount\b'
-    not_match: '^\s*umount\s+--help\b'
-  - action: forbid
-    match: '^\s*diskutil\b'
-    not_match: '^\s*diskutil\s+list\b'
-  - action: forbid
-    match: '^\s*ssh\b'
-    not_match: '^\s*ssh\s+-G\b'
-  - action: forbid
-    match: '^\s*scp\b'
-    not_match: '^\s*scp\s+--help\b'
-  - action: forbid
-    match: '^\s*rsync\b'
-    not_match: '^\s*rsync\s+--help\b'
-  - action: forbid
-    match: '^\s*nc\b'
-    not_match: '^\s*nc\s+-h\b'
-  - action: forbid
-    match: '^\s*socat\b'
-    not_match: '^\s*socat\s+-h\b'
-  - action: forbid
-    match: '^\s*(bash|sh)\s+-c\b'
-    not_match: '^\s*(bash|sh)\s+-c\s+"echo safe"\b'
-  - action: prompt
-    match: '^\s*git\s+push\b'
-    not_match: '^\s*git\s+push\s+--dry-run\b'
-  - action: prompt
-    match: '^\s*git\s+reset\s+--hard\b'
-    not_match: '^\s*git\s+reset\s+--hard\s+HEAD~0\b'
-  - action: prompt
-    match: '^\s*docker\s+system\s+prune\b'
-    not_match: '^\s*docker\s+system\s+prune\s+--dry-run\b'
-  - action: prompt
-    match: '^\s*docker\s+rm\b'
-    not_match: '^\s*docker\s+rm\s+--help\b'
-  - action: prompt
-    match: '^\s*docker\s+rmi\b'
-    not_match: '^\s*docker\s+rmi\s+--help\b'
+# Codex execpolicy baseline rules (Starlark).
+# NOTE:
+# - prefix_rule() matches a command by token prefix (argv-like list), not regex.
+# - match / not_match are load-time "inline unit tests", not runtime exceptions.
+# - Most restrictive decision wins: forbidden > prompt > allow.
+
+# High-risk privilege escalation
+prefix_rule(
+    pattern = ["sudo"],
+    decision = "forbidden",
+    justification = "Blocked: privilege escalation. Run manually if needed.",
+    match = ["sudo whoami"],
+)
+
+prefix_rule(
+    pattern = ["su"],
+    decision = "forbidden",
+    justification = "Blocked: privilege escalation. Run manually if needed.",
+    match = ["su root"],
+)
+
+# High-risk destructive filesystem commands
+prefix_rule(
+    pattern = ["rm"],
+    decision = "forbidden",
+    justification = "Blocked: destructive file deletion. Prefer safe, explicit manual runs.",
+    match = ["rm -rf ."],
+)
+
+prefix_rule(
+    pattern = ["dd"],
+    decision = "forbidden",
+    justification = "Blocked: raw device write risk.",
+    match = ["dd if=/dev/zero of=/dev/disk3 bs=1m"],
+)
+
+# mkfs (generic)
+prefix_rule(
+    pattern = ["mkfs"],
+    decision = "forbidden",
+    justification = "Blocked: filesystem formatting risk.",
+    match = ["mkfs /dev/sdb1"],
+)
+
+# mkfs variants commonly invoked directly
+prefix_rule(
+    pattern = ["mkfs.ext4"],
+    decision = "forbidden",
+    justification = "Blocked: filesystem formatting risk.",
+    match = ["mkfs.ext4 /dev/sdb1"],
+)
+
+prefix_rule(
+    pattern = ["mkfs.xfs"],
+    decision = "forbidden",
+    justification = "Blocked: filesystem formatting risk.",
+    match = ["mkfs.xfs -f /dev/sdb1"],
+)
+
+prefix_rule(
+    pattern = ["mount"],
+    decision = "forbidden",
+    justification = "Blocked: system-level mount operations.",
+    match = ["mount /dev/disk2s1 /mnt"],
+)
+
+prefix_rule(
+    pattern = ["umount"],
+    decision = "forbidden",
+    justification = "Blocked: system-level unmount operations.",
+    match = ["umount /mnt"],
+)
+
+# macOS disk operations (broadly risky)
+prefix_rule(
+    pattern = ["diskutil"],
+    decision = "forbidden",
+    justification = "Blocked: disk operations can be destructive. Run manually if needed.",
+    match = ["diskutil eraseDisk APFS Foo /dev/disk3"],
+)
+
+# Network / data exfiltration vectors
+prefix_rule(
+    pattern = ["ssh"],
+    decision = "forbidden",
+    justification = "Blocked: remote execution / exfiltration risk.",
+    match = ["ssh user@example.com"],
+)
+
+prefix_rule(
+    pattern = ["scp"],
+    decision = "forbidden",
+    justification = "Blocked: file transfer / exfiltration risk.",
+    match = ["scp file user@example.com:/tmp/"],
+)
+
+prefix_rule(
+    pattern = ["rsync"],
+    decision = "forbidden",
+    justification = "Blocked: file transfer / exfiltration risk.",
+    match = ["rsync -av . user@example.com:/tmp/"],
+)
+
+prefix_rule(
+    pattern = ["nc"],
+    decision = "forbidden",
+    justification = "Blocked: raw networking tool.",
+    match = ["nc -l 4444"],
+)
+
+prefix_rule(
+    pattern = ["socat"],
+    decision = "forbidden",
+    justification = "Blocked: raw networking / port forwarding tool.",
+    match = ["socat TCP-LISTEN:4444,fork TCP:example.com:80"],
+)
+
+# Shell indirection (often used to smuggle arbitrary scripts)
+prefix_rule(
+    pattern = ["bash", "-c"],
+    decision = "forbidden",
+    justification = "Blocked: arbitrary shell execution. Prefer explicit commands.",
+    match = ['bash -c "echo hi"'],
+)
+
+prefix_rule(
+    pattern = ["sh", "-c"],
+    decision = "forbidden",
+    justification = "Blocked: arbitrary shell execution. Prefer explicit commands.",
+    match = ['sh -c "echo hi"'],
+)
+
+# High-impact VCS ops: prompt (approval gate)
+prefix_rule(
+    pattern = ["git", "push"],
+    decision = "prompt",
+    justification = "Approval required: pushes can affect remotes.",
+    match = ["git push origin main"],
+)
+
+prefix_rule(
+    pattern = ["git", "reset", "--hard"],
+    decision = "prompt",
+    justification = "Approval required: destructive reset can discard local work.",
+    match = ["git reset --hard HEAD~1"],
+)
+
+# High-impact Docker ops: prompt
+prefix_rule(
+    pattern = ["docker", "system", "prune"],
+    decision = "prompt",
+    justification = "Approval required: may remove images/containers/volumes.",
+    match = ["docker system prune -a"],
+)
+
+prefix_rule(
+    pattern = ["docker", "rm"],
+    decision = "prompt",
+    justification = "Approval required: removes containers.",
+    match = ["docker rm my_container"],
+)
+
+prefix_rule(
+    pattern = ["docker", "rmi"],
+    decision = "prompt",
+    justification = "Approval required: removes images.",
+    match = ["docker rmi my_image:latest"],
+)
