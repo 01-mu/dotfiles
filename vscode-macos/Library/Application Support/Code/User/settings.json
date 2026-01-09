@@ -55,5 +55,20 @@
         "*.db3": "${capture}.${extname}-*",
         "*.sdb": "${capture}.${extname}-*",
         "*.s3db": "${capture}.${extname}-*"
-    }
+    },
+    "cSpell.userWords": [
+        "APFS",
+        "autofetch",
+        "diskutil",
+        "execpolicy",
+        "exfiltration",
+        "ghostty",
+        "nvim",
+        "Prereq",
+        "rgba",
+        "sandboxed",
+        "socat",
+        "Starlark",
+        "worktrees"
+    ]
 }
