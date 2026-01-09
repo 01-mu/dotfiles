@@ -12,6 +12,9 @@ vim.opt.tabstop = 2
 -- Enable mouse
 vim.opt.mouse = "a"
 
+-- jj to escape (insert mode)
+vim.keymap.set("i", "jj", "<Esc>", { noremap = true })
+
 -- lazy.nvim bootstrap -----------------------------------------
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 
