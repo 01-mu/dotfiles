@@ -11,13 +11,44 @@ stow -n nvim ghostty zsh vim git
 stow nvim ghostty zsh vim git
 ```
 
-## Codex prompts (stow)
+## Codex (stow)
 
 ```shell
 cd ~/dotfiles
-stow -n codex -t ~/.codex
-stow codex -t ~/.codex
+stow -n codex
+stow codex
 ```
+
+## Codex safe setup
+
+Add the wrapper to PATH (zsh example):
+
+```shell
+export PATH="$HOME/.codex/bin:$PATH"
+```
+
+Run Codex through the sandboxed wrapper:
+
+```shell
+codex-safe
+```
+
+Check execpolicy rules:
+
+```shell
+codex execpolicy check --pretty --rules ~/.codex/rules/00-baseline.rules -- sudo ls
+```
+
+Verify secret reads are blocked (should fail on macOS sandbox):
+
+```shell
+sandbox-exec -f ~/.codex/sandbox/deny-secrets.sb cat .env
+```
+
+Limitations:
+- Rules gate command execution only; they do not block file reads.
+- macOS uses `sandbox-exec` deny rules; Linux uses bwrap/firejail best-effort.
+- `.env` blocking is strongest on macOS; Linux fallback cannot block globbed files everywhere.
 
 ## VS Code (stow)
 

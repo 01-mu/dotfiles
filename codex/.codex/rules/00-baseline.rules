@@ -1,0 +1,61 @@
+# Codex execpolicy baseline rules.
+# Format: YAML-style rules with match/not_match regex examples.
+version: 1
+rules:
+  - action: forbid
+    match: '^\s*sudo\b'
+    not_match: '^\s*sudo\s+--help\b'
+  - action: forbid
+    match: '^\s*su\b'
+    not_match: '^\s*su\s+--help\b'
+  - action: forbid
+    match: '^\s*rm\b'
+    not_match: '^\s*rm\s+--help\b'
+  - action: forbid
+    match: '^\s*dd\b'
+    not_match: '^\s*dd\s+--help\b'
+  - action: forbid
+    match: '^\s*mkfs\b'
+    not_match: '^\s*mkfs\s+--help\b'
+  - action: forbid
+    match: '^\s*mount\b'
+    not_match: '^\s*mount\s+--help\b'
+  - action: forbid
+    match: '^\s*umount\b'
+    not_match: '^\s*umount\s+--help\b'
+  - action: forbid
+    match: '^\s*diskutil\b'
+    not_match: '^\s*diskutil\s+list\b'
+  - action: forbid
+    match: '^\s*ssh\b'
+    not_match: '^\s*ssh\s+-G\b'
+  - action: forbid
+    match: '^\s*scp\b'
+    not_match: '^\s*scp\s+--help\b'
+  - action: forbid
+    match: '^\s*rsync\b'
+    not_match: '^\s*rsync\s+--help\b'
+  - action: forbid
+    match: '^\s*nc\b'
+    not_match: '^\s*nc\s+-h\b'
+  - action: forbid
+    match: '^\s*socat\b'
+    not_match: '^\s*socat\s+-h\b'
+  - action: forbid
+    match: '^\s*(bash|sh)\s+-c\b'
+    not_match: '^\s*(bash|sh)\s+-c\s+"echo safe"\b'
+  - action: prompt
+    match: '^\s*git\s+push\b'
+    not_match: '^\s*git\s+push\s+--dry-run\b'
+  - action: prompt
+    match: '^\s*git\s+reset\s+--hard\b'
+    not_match: '^\s*git\s+reset\s+--hard\s+HEAD~0\b'
+  - action: prompt
+    match: '^\s*docker\s+system\s+prune\b'
+    not_match: '^\s*docker\s+system\s+prune\s+--dry-run\b'
+  - action: prompt
+    match: '^\s*docker\s+rm\b'
+    not_match: '^\s*docker\s+rm\s+--help\b'
+  - action: prompt
+    match: '^\s*docker\s+rmi\b'
+    not_match: '^\s*docker\s+rmi\s+--help\b'

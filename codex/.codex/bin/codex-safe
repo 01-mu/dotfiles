@@ -1,0 +1,52 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+CODEX_HOME="${HOME}/.codex"
+export CODEX_HOME
+
+os="$(uname -s)"
+
+if [[ "$os" == "Darwin" ]]; then
+  exec /usr/bin/sandbox-exec -f "${CODEX_HOME}/sandbox/deny-secrets.sb" codex "$@"
+fi
+
+if [[ "$os" == "Linux" ]]; then
+  if command -v bwrap >/dev/null 2>&1; then
+    tmpdir="$(mktemp -d)"
+    empty_dir="${tmpdir}/empty"
+    empty_file="${tmpdir}/emptyfile"
+    mkdir -p "${empty_dir}"
+    : > "${empty_file}"
+
+    exec bwrap \
+      --bind / / \
+      --dev /dev \
+      --proc /proc \
+      --tmpfs /tmp \
+      --bind "${empty_dir}" "${HOME}/.ssh" \
+      --bind "${empty_dir}" "${HOME}/.aws" \
+      --bind "${empty_dir}" "${HOME}/.config/gcloud" \
+      --bind "${empty_file}" "${HOME}/.git-credentials" \
+      --bind "${empty_file}" "${HOME}/.npmrc" \
+      --bind "${empty_file}" "${HOME}/.pypirc" \
+      codex "$@"
+  fi
+
+  if command -v firejail >/dev/null 2>&1; then
+    exec firejail \
+      --quiet \
+      --blacklist="${HOME}/.ssh" \
+      --blacklist="${HOME}/.aws" \
+      --blacklist="${HOME}/.config/gcloud" \
+      --blacklist="${HOME}/.git-credentials" \
+      --blacklist="${HOME}/.npmrc" \
+      --blacklist="${HOME}/.pypirc" \
+      codex "$@"
+  fi
+
+  echo "warning: no Linux sandbox found (bwrap/firejail). Running codex unsandboxed." >&2
+  exec codex "$@"
+fi
+
+echo "warning: unsupported OS for codex-safe, running codex unsandboxed." >&2
+exec codex "$@"
