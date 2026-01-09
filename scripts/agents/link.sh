@@ -2,29 +2,20 @@
 set -euo pipefail
 
 DOTFILES_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+STOW_DIR="${DOTFILES_ROOT}/agents"
+TARGET="${HOME}/.codex"
 
-link_dir () {
-  local src="$1"
-  local dst="$2"
+if ! command -v stow >/dev/null 2>&1; then
+  echo "stow not found. Install it first and re-run."
+  exit 1
+fi
 
-  if [ ! -d "$src" ]; then
-    echo "skip: source not found: $src"
-    return
-  fi
+if [ ! -d "${STOW_DIR}/codex" ]; then
+  echo "skip: package not found: ${STOW_DIR}/codex"
+  exit 0
+fi
 
-  mkdir -p "$(dirname "$dst")"
-
-  if [ -L "$dst" ] || [ -e "$dst" ]; then
-    rm -rf "$dst"
-  fi
-
-  ln -s "$src" "$dst"
-  echo "linked: $dst -> $src"
-}
-
-# ---- Codex ----
-link_dir "$DOTFILES_ROOT/agents/codex/prompts" "$HOME/.codex/prompts"
-# 将来使うときのために残しておく
-# link_dir "$DOTFILES_ROOT/codex/skills"  "$HOME/.codex/skills"
+mkdir -p "${TARGET}"
+stow -v -R -t "${TARGET}" -d "${STOW_DIR}" codex
 
 echo "done."

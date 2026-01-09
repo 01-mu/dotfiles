@@ -2,25 +2,15 @@
 set -euo pipefail
 
 REPO="${HOME}/dotfiles"
-NVIM_SRC="${REPO}/nvim/.config/nvim"
-NVIM_DEST="${HOME}/.config/nvim"
+PACKAGES=(nvim ghostty)
 
-echo "[1/4] Ensure base dirs"
-mkdir -p "${HOME}/.config" "${REPO}/nvim/.config"
-
-echo "[2/4] Backup or unlink existing ~/.config/nvim"
-if [ -L "${NVIM_DEST}" ]; then
-  unlink "${NVIM_DEST}" || true
-elif [ -d "${NVIM_DEST}" ]; then
-  mv "${NVIM_DEST}" "${NVIM_DEST}.backup.$(date +%Y%m%d-%H%M%S)"
+if ! command -v stow >/dev/null 2>&1; then
+  echo "stow not found. Install it first and re-run."
+  exit 1
 fi
 
-echo "[3/4] Stow 'nvim'"
+echo "[1/1] Stow packages: ${PACKAGES[*]}"
 cd "${REPO}"
-stow -v -R nvim
+stow -v -R "${PACKAGES[@]}"
 
-echo "[4/4] Headless Neovim bootstrap"
-nvim --headless "+Lazy! sync" "+TSUpdateSync" +qa || true
-
-echo "All set. (~/.config/nvim -> ${NVIM_SRC})"
-
+echo "All set. Symlinks are managed by stow."

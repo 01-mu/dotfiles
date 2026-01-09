@@ -73,6 +73,7 @@ formulae=(
   ripgrep
   ruby
   ruby-build
+  stow
   tmux
   tree-sitter@0.25
   unbound
