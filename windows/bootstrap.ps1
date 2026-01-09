@@ -9,6 +9,8 @@ $ProfileSource = Join-Path $RepoRoot "windows\powershell\Microsoft.PowerShell_pr
 $ProfileTarget = Join-Path $HOME "Documents\PowerShell\Microsoft.PowerShell_profile.ps1"
 $WslConfigSource = Join-Path $RepoRoot "windows\wsl\.wslconfig"
 $WslConfigTarget = Join-Path $HOME ".wslconfig"
+$VscodeSource = Join-Path $RepoRoot "windows\vscode\settings.json"
+$VscodeTarget = Join-Path $env:APPDATA "Code\User\settings.json"
 
 function Ensure-Directory([string]$Path) {
   if (-not (Test-Path $Path)) {
@@ -47,6 +49,14 @@ if (Test-Path $WslConfigSource) {
   Copy-Item -Path $WslConfigSource -Destination $WslConfigTarget -Force
 } else {
   Write-Host "skip: wsl config not found: $WslConfigSource"
+}
+
+Write-Host "[5/5] Install VS Code settings"
+if (Test-Path $VscodeSource) {
+  Ensure-Directory (Split-Path $VscodeTarget -Parent)
+  Copy-Item -Path $VscodeSource -Destination $VscodeTarget -Force
+} else {
+  Write-Host "skip: vscode settings not found: $VscodeSource"
 }
 
 Write-Host "Windows bootstrap complete."

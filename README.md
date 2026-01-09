@@ -11,6 +11,24 @@ stow -n nvim ghostty zsh vim git
 stow nvim ghostty zsh vim git
 ```
 
+## VS Code (stow)
+
+### macOS
+
+```shell
+cd ~/dotfiles
+stow -n vscode-macos
+stow vscode-macos
+```
+
+### Linux
+
+```shell
+cd ~/dotfiles
+stow -n vscode-linux
+stow vscode-linux
+```
+
 ## Windows setup (PowerShell)
 
 ```powershell

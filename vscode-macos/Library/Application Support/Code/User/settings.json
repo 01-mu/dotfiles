@@ -1,0 +1,67 @@
+{
+    "editor.unicodeHighlight.nonBasicASCII": false,
+    "workbench.sideBar.location": "right",
+    "editor.gotoLocation.multipleDefinitions": "goto",
+    "git.autofetch": true,
+    "workbench.startupEditor": "none",
+    "gitlens.views.scm.grouped.views": {
+        "commits": true,
+        "branches": true,
+        "remotes": true,
+        "stashes": true,
+        "tags": true,
+        "worktrees": true,
+        "contributors": true,
+        "repositories": false,
+        "searchAndCompare": true,
+        "launchpad": false
+    },
+    "kotlin.languageServer.enabled": false,
+    "kotlin.debugAdapter.enabled": false,
+    "workbench.iconTheme": "vscode-icons",
+    "editor.tabSize": 2,
+    "files.autoGuessEncoding": true,
+    "liveServer.settings.donotShowInfoMsg": true,
+    "files.trimTrailingWhitespace": true,
+    "javascript.updateImportsOnFileMove.enabled": "always",
+    "diffEditor.ignoreTrimWhitespace": false,
+    "docker.extension.enableComposeLanguageServer": false,
+    "typescript.updateImportsOnFileMove.enabled": "always",
+    "workbench.colorTheme": "Noctis Azureus",
+    "editor.renderWhitespace": "all",
+    "github.copilot.enable": {
+        "*": true
+    },
+    "indentRainbow.includedLanguages": [
+        "html",
+        "python",
+        "dockercompose"
+    ],
+    "indentRainbow.indicatorStyle": "light",
+    "indentRainbow.colors": [
+        "rgba(128,  64,  64, 1)",
+        "rgba(128,  96,  32, 1)",
+        "rgba(128, 128,  32, 1)",
+        "rgba( 32, 128,  32, 1)",
+        "rgba( 32,  64, 128, 1)",
+        "rgba(128,  64, 128, 1)"
+    ],
+    "indentRainbow.lightIndicatorStyleLineWidth": 1.5,
+    "explorer.fileNesting.patterns": {
+        "*.ts": "${capture}.js",
+        "*.js": "${capture}.js.map, ${capture}.min.js, ${capture}.d.ts",
+        "*.jsx": "${capture}.js",
+        "*.tsx": "${capture}.ts",
+        "tsconfig.json": "tsconfig.*.json",
+        "package.json": "package-lock.json, yarn.lock, pnpm-lock.yaml, bun.lockb, bun.lock",
+        "*.fs": "${basename}.fsi, ${basename}.fs.js, ${basename}.fs.js.map",
+        "*.fsl": "${basename}.fsi, ${basename}.fs",
+        "*.fsy": "${basename}.fsi, ${basename}.fs",
+        "*.sqlite": "${capture}.${extname}-*",
+        "*.db": "${capture}.${extname}-*",
+        "*.sqlite3": "${capture}.${extname}-*",
+        "*.db3": "${capture}.${extname}-*",
+        "*.sdb": "${capture}.${extname}-*",
+        "*.s3db": "${capture}.${extname}-*"
+    }
+}
