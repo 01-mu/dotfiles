@@ -7,8 +7,8 @@ Edit files under `~/dotfiles` only.
 
 ```shell
 cd ~/dotfiles
-stow -n nvim ghostty
-stow nvim ghostty
+stow -n nvim ghostty zsh vim git
+stow nvim ghostty zsh vim git
 ```
 
 ## Windows setup (PowerShell)
