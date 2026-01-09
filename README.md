@@ -1,9 +1,14 @@
 # dotfiles
 
-This repo is the source of truth. `$HOME` is generated via GNU stow.
-Edit files under `~/dotfiles` only.
+This repo is the source of truth for my dotfiles. `$HOME` is generated via GNU
+stow, so edit files only under `~/dotfiles`.
 
-## stow usage
+Prereq: install GNU stow first.
+
+## Stow usage
+
+- Use `-n` to preview changes before applying.
+- Run commands from the repo root.
 
 ```shell
 cd ~/dotfiles
@@ -76,7 +81,7 @@ cd $HOME\dotfiles
 .\windows\bootstrap.ps1
 ```
 
-## setup script
+## Setup script
 
 ```shell
 cd ~/dotfiles
@@ -84,7 +89,7 @@ chmod +x setup.sh
 ./setup.sh
 ```
 
-## scripts
+## Scripts
 
 ### macOS bootstrap
 
