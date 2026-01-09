@@ -1,2 +1,26 @@
 [core]
 	excludesfile = ~/.config/git/ignore
+
+[user]
+	name = mu
+	email = 01-mu@users.noreply.github.com
+
+[alias]
+	s = status
+	a = add
+	aa = add .
+	ap = add -p
+	c = commit
+	cm = commit -m
+	ca = commit --amend
+	can = commit --amend --no-edit
+	sw = switch
+	swc = switch -c
+	b = branch
+	bd = branch -d
+	cur = branch --show-current
+	d = diff
+	dc = diff --cached
+	lg = log --oneline --decorate --graph --all
+	undo = reset --soft HEAD~1
+	refl = reflog
