@@ -9,8 +9,8 @@ Prereq: install GNU stow.
 
 ```shell
 cd ~/dotfiles
-stow -n nvim ghostty zsh vim git
-stow nvim ghostty zsh vim git
+stow -n nvim ghostty zsh vim git nix
+stow nvim ghostty zsh vim git nix
 ```
 
 ## Codex (stow)
