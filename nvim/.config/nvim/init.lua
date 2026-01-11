@@ -51,13 +51,13 @@ require("lazy").setup({
     end,
   },
 
-  -- File explorer (buffer-like)
+  -- File explorer (tree)
   {
-    "stevearc/oil.nvim",
+    "nvim-tree/nvim-tree.lua",
     dependencies = { "nvim-tree/nvim-web-devicons" },
     config = function()
-      require("oil").setup({})
-      vim.keymap.set("n", "-", "<cmd>Oil<cr>", { desc = "Open parent directory" })
+      require("nvim-tree").setup({})
+      vim.keymap.set("n", "-", "<cmd>NvimTreeToggle<cr>", { desc = "Toggle file tree" })
     end,
   },
 
@@ -69,4 +69,3 @@ require("lazy").setup({
     end,
   },
 })
-
