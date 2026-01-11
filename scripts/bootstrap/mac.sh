@@ -18,8 +18,10 @@ formulae=(
   abseil
   asciinema
   autoconf
+  bash
   ca-certificates
   cocoapods
+  direnv
   docker-compose
   fzf
   gcc
@@ -34,6 +36,7 @@ formulae=(
   isl
   krb5
   lazydocker
+  lazygit
   libassuan
   libevent
   libgcrypt
