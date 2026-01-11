@@ -43,4 +43,14 @@ return {
       vim.keymap.set("n", "<leader>gg", "<cmd>LazyGit<cr>", { desc = "Open lazygit" })
     end,
   },
+
+  -- Buffer line
+  {
+    "akinsho/bufferline.nvim",
+    version = "*",
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+    config = function()
+      require("bufferline").setup({})
+    end,
+  },
 }
