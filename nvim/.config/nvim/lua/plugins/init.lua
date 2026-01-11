@@ -53,4 +53,13 @@ return {
       require("bufferline").setup({})
     end,
   },
+
+  -- Indent guides
+  {
+    "lukas-reineke/indent-blankline.nvim",
+    main = "ibl",
+    config = function()
+      require("ibl").setup({})
+    end,
+  },
 }
