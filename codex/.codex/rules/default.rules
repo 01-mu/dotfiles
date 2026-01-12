@@ -1,0 +1,2 @@
+prefix_rule(pattern=["devenv", "shell", "--", "moon", "version"], decision="allow")
+prefix_rule(pattern=["devenv", "test"], decision="allow")
