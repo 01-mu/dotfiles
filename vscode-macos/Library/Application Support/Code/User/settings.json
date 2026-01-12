@@ -70,5 +70,6 @@
         "socat",
         "Starlark",
         "worktrees"
-    ]
+    ],
+    "moonbit.ai.telemetry": "on"
 }
