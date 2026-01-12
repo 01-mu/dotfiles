@@ -79,6 +79,8 @@ formulae=(
   stow
   tmux
   tree-sitter@0.25
+  tree-sitter
+  tree-sitter-cli
   unbound
   unibilium
   usage
