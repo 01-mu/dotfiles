@@ -1,2 +1,25 @@
-prefix_rule(pattern=["devenv", "shell", "--", "moon", "version"], decision="allow")
-prefix_rule(pattern=["devenv", "test"], decision="allow")
+# User-level allowlist (project-agnostic).
+# Keep patterns short and avoid embedding full paths.
+
+# jj: common read/write flows
+prefix_rule(pattern=["jj", "status"], decision="allow")
+prefix_rule(pattern=["jj", "st"], decision="allow")
+prefix_rule(pattern=["jj", "diff"], decision="allow")
+prefix_rule(pattern=["jj", "log"], decision="allow")
+prefix_rule(pattern=["jj", "file", "show"], decision="allow")
+prefix_rule(pattern=["jj", "describe"], decision="allow")
+prefix_rule(pattern=["jj", "commit"], decision="allow")
+prefix_rule(pattern=["jj", "bookmark"], decision="allow")
+prefix_rule(pattern=["jj", "split"], decision="allow")
+prefix_rule(pattern=["jj", "new"], decision="allow")
+
+# git: basic local ops
+prefix_rule(pattern=["git", "status"], decision="allow")
+prefix_rule(pattern=["git", "branch"], decision="allow")
+prefix_rule(pattern=["git", "diff"], decision="allow")
+prefix_rule(pattern=["git", "log"], decision="allow")
+prefix_rule(pattern=["git", "add"], decision="allow")
+prefix_rule(pattern=["git", "commit"], decision="allow")
+
+# dev server helper
+prefix_rule(pattern=["npm", "run", "dev"], decision="allow")
