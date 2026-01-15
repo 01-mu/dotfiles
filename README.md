@@ -7,17 +7,32 @@ Prereq: GNU stow.
 
 ```shell
 cd ~/dotfiles
+```
+
+Core:
+
+```shell
 stow -n nvim ghostty zsh vim git nix
 stow nvim ghostty zsh vim git nix
 ```
 
-## Codex
+Codex:
 
 ```shell
-cd ~/dotfiles
 stow -n codex
 stow codex
 ```
+
+VS Code (mac / Linux):
+
+```shell
+stow -n vscode-mac
+stow vscode-mac
+stow -n vscode-linux
+stow vscode-linux
+```
+
+## Codex
 
 ### Safe wrapper
 
@@ -36,26 +51,10 @@ codex execpolicy check --pretty --rules ~/.codex/rules/policy-deny.rules -- sudo
 sandbox-exec -f ~/.codex/sandbox/deny-secrets.sb cat .env
 ```
 
-## VS Code (mac / Linux)
-
-```shell
-cd ~/dotfiles
-stow -n vscode-mac
-stow vscode-mac
-stow -n vscode-linux
-stow vscode-linux
-```
-
-## Setup
-
-```shell
-cd ~/dotfiles
-chmod +x scripts/setup.sh
-./scripts/setup.sh
-```
-
 ## mac bootstrap
 
 ```shell
 ./scripts/bootstrap/mac.sh
 ```
+
+Windows: see `windows/README.md`.
