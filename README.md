@@ -58,8 +58,8 @@ cd $HOME\dotfiles
 
 ```shell
 cd ~/dotfiles
-chmod +x setup.sh
-./setup.sh
+chmod +x scripts/setup.sh
+./scripts/setup.sh
 ```
 
 ## mac bootstrap
