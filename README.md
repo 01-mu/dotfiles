@@ -46,10 +46,6 @@ stow -n vscode-linux
 stow vscode-linux
 ```
 
-## Windows
-
-See `windows/README.md`.
-
 ## Setup
 
 ```shell
