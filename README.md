@@ -1,9 +1,7 @@
 # dotfiles
 
-This repo is the source of truth for my dotfiles. Edit files only under
-`~/dotfiles`.
-
-Prereq: install GNU stow.
+Source of truth for my dotfiles. Edit only under `~/dotfiles`.
+Prereq: GNU stow.
 
 ## Stow usage
 
@@ -13,7 +11,7 @@ stow -n nvim ghostty zsh vim git nix
 stow nvim ghostty zsh vim git nix
 ```
 
-## Codex (stow)
+## Codex
 
 ```shell
 cd ~/dotfiles
@@ -21,46 +19,34 @@ stow -n codex
 stow codex
 ```
 
-## Codex safe setup
-
-Add the wrapper to PATH (zsh example):
+### Safe wrapper
 
 ```shell
 export PATH="$HOME/.codex/bin:$PATH"
 ```
 
-Run Codex through the sandboxed wrapper:
-
 ```shell
 codex-safe
 ```
 
-Optional safety checks:
+Optional checks:
 
 ```shell
 codex execpolicy check --pretty --rules ~/.codex/rules/policy-deny.rules -- sudo ls
 sandbox-exec -f ~/.codex/sandbox/deny-secrets.sb cat .env
 ```
 
-## VS Code (stow)
-
-### macOS
+## VS Code (mac / Linux)
 
 ```shell
 cd ~/dotfiles
-stow -n vscode-macos
-stow vscode-macos
-```
-
-### Linux
-
-```shell
-cd ~/dotfiles
+stow -n vscode-mac
+stow vscode-mac
 stow -n vscode-linux
 stow vscode-linux
 ```
 
-## Windows setup (PowerShell)
+## Windows
 
 ```powershell
 Set-ExecutionPolicy -Scope CurrentUser RemoteSigned
@@ -68,7 +54,7 @@ cd $HOME\dotfiles
 .\windows\bootstrap.ps1
 ```
 
-## Setup script
+## Setup
 
 ```shell
 cd ~/dotfiles
@@ -76,9 +62,7 @@ chmod +x setup.sh
 ./setup.sh
 ```
 
-## Scripts
-
-### macOS bootstrap
+## mac bootstrap
 
 ```shell
 ./scripts/bootstrap/mac.sh
