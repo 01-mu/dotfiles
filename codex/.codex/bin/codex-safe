@@ -11,6 +11,38 @@ if [[ "$os" == "Darwin" ]]; then
 fi
 
 if [[ "$os" == "Linux" ]]; then
+  secret_dirs=(
+    "${HOME}/.ssh"
+    "${HOME}/.aws"
+    "${HOME}/.config/gcloud"
+  )
+
+  secret_files=(
+    "${HOME}/.git-credentials"
+    "${HOME}/.npmrc"
+    "${HOME}/.pypirc"
+    "${HOME}/.env"
+  )
+
+  shopt -s nullglob
+  home_env_variants=("${HOME}"/.env.*)
+  pwd_env_variants=("${PWD}"/.env "${PWD}"/.env.*)
+  shopt -u nullglob
+
+  existing_secret_dirs=()
+  for dir in "${secret_dirs[@]}"; do
+    if [[ -d "$dir" ]]; then
+      existing_secret_dirs+=("$dir")
+    fi
+  done
+
+  existing_secret_files=()
+  for file in "${secret_files[@]}" "${home_env_variants[@]}" "${pwd_env_variants[@]}"; do
+    if [[ -f "$file" ]]; then
+      existing_secret_files+=("$file")
+    fi
+  done
+
   if command -v bwrap >/dev/null 2>&1; then
     tmpdir="$(mktemp -d)"
     empty_dir="${tmpdir}/empty"
@@ -18,30 +50,38 @@ if [[ "$os" == "Linux" ]]; then
     mkdir -p "${empty_dir}"
     : > "${empty_file}"
 
-    exec bwrap \
-      --bind / / \
-      --dev /dev \
-      --proc /proc \
-      --tmpfs /tmp \
-      --bind "${empty_dir}" "${HOME}/.ssh" \
-      --bind "${empty_dir}" "${HOME}/.aws" \
-      --bind "${empty_dir}" "${HOME}/.config/gcloud" \
-      --bind "${empty_file}" "${HOME}/.git-credentials" \
-      --bind "${empty_file}" "${HOME}/.npmrc" \
-      --bind "${empty_file}" "${HOME}/.pypirc" \
-      codex "$@"
+    bwrap_args=(
+      --bind / /
+      --dev /dev
+      --proc /proc
+      --tmpfs /tmp
+    )
+
+    for dir in "${existing_secret_dirs[@]}"; do
+      bwrap_args+=(--bind "${empty_dir}" "${dir}")
+    done
+
+    for file in "${existing_secret_files[@]}"; do
+      bwrap_args+=(--bind "${empty_file}" "${file}")
+    done
+
+    exec bwrap "${bwrap_args[@]}" codex "$@"
   fi
 
   if command -v firejail >/dev/null 2>&1; then
-    exec firejail \
-      --quiet \
-      --blacklist="${HOME}/.ssh" \
-      --blacklist="${HOME}/.aws" \
-      --blacklist="${HOME}/.config/gcloud" \
-      --blacklist="${HOME}/.git-credentials" \
-      --blacklist="${HOME}/.npmrc" \
-      --blacklist="${HOME}/.pypirc" \
-      codex "$@"
+    firejail_args=(
+      --quiet
+    )
+
+    for dir in "${existing_secret_dirs[@]}"; do
+      firejail_args+=(--blacklist="${dir}")
+    done
+
+    for file in "${existing_secret_files[@]}"; do
+      firejail_args+=(--blacklist="${file}")
+    done
+
+    exec firejail "${firejail_args[@]}" codex "$@"
   fi
 
   echo "warning: no Linux sandbox found (bwrap/firejail). Running codex unsandboxed." >&2
