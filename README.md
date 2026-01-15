@@ -38,7 +38,7 @@ codex-safe
 Optional safety checks:
 
 ```shell
-codex execpolicy check --pretty --rules ~/.codex/rules/00-baseline.rules -- sudo ls
+codex execpolicy check --pretty --rules ~/.codex/rules/policy-deny.rules -- sudo ls
 sandbox-exec -f ~/.codex/sandbox/deny-secrets.sb cat .env
 ```
 
