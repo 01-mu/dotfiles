@@ -9,28 +9,14 @@ Prereq: GNU stow.
 cd ~/dotfiles
 ```
 
-Core:
+mac default (Linux too):
 
 ```shell
-stow -n nvim ghostty zsh vim git nix
-stow nvim ghostty zsh vim git nix
+stow -n nvim ghostty zsh vim git nix vscode-mac codex
+stow nvim ghostty zsh vim git nix vscode-mac codex
 ```
 
-Codex:
-
-```shell
-stow -n codex
-stow codex
-```
-
-VS Code (mac / Linux):
-
-```shell
-stow -n vscode-mac
-stow vscode-mac
-stow -n vscode-linux
-stow vscode-linux
-```
+Note: `vscode-linux` is also available.
 
 ## Codex
 
