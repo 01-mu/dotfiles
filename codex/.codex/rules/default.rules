@@ -1,6 +1,19 @@
 # User-level allowlist (project-agnostic).
 # Keep patterns short and avoid embedding full paths.
 
+# git: local ops + branch navigation
+prefix_rule(pattern=["git", "status"], decision="allow")
+prefix_rule(pattern=["git", "branch"], decision="allow")
+prefix_rule(pattern=["git", "diff"], decision="allow")
+prefix_rule(pattern=["git", "log"], decision="allow")
+prefix_rule(pattern=["git", "add"], decision="allow")
+prefix_rule(pattern=["git", "commit"], decision="allow")
+prefix_rule(pattern=["git", "switch"], decision="allow")
+prefix_rule(pattern=["git", "fetch"], decision="allow")
+
+# gh: PR inspection
+prefix_rule(pattern=["gh", "pr", "view"], decision="allow")
+
 # jj: common read/write flows
 prefix_rule(pattern=["jj", "status"], decision="allow")
 prefix_rule(pattern=["jj", "st"], decision="allow")
@@ -12,14 +25,7 @@ prefix_rule(pattern=["jj", "commit"], decision="allow")
 prefix_rule(pattern=["jj", "bookmark"], decision="allow")
 prefix_rule(pattern=["jj", "split"], decision="allow")
 prefix_rule(pattern=["jj", "new"], decision="allow")
+prefix_rule(pattern=["jj", "git", "fetch"], decision="allow")
 
-# git: basic local ops
-prefix_rule(pattern=["git", "status"], decision="allow")
-prefix_rule(pattern=["git", "branch"], decision="allow")
-prefix_rule(pattern=["git", "diff"], decision="allow")
-prefix_rule(pattern=["git", "log"], decision="allow")
-prefix_rule(pattern=["git", "add"], decision="allow")
-prefix_rule(pattern=["git", "commit"], decision="allow")
-
-# dev server helper
+# npm: dev server helper
 prefix_rule(pattern=["npm", "run", "dev"], decision="allow")
