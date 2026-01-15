@@ -48,11 +48,7 @@ stow vscode-linux
 
 ## Windows
 
-```powershell
-Set-ExecutionPolicy -Scope CurrentUser RemoteSigned
-cd $HOME\dotfiles
-.\windows\bootstrap.ps1
-```
+See `windows/README.md`.
 
 ## Setup
 
