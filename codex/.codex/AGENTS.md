@@ -6,10 +6,7 @@
 - If configuration is needed, ask the user for non-secret placeholders.
 
 ## Jujutsu workflow
-- Use `jj change` proactively and keep `jj describe` up to date.
-- When consolidating changes into a commit, derive the commit message from prior describe text and the change contents.
-- Name bookmarks based on the same describe/commit wording.
-- Treat `jj change` history as the user's decision history; do not rewrite it without explicit request.
+- For JJ operational rules, refer to `codex/.codex/skills/jj.md`.
 
 ## Release and PR policy
 - For released products, never merge directly to `main`; merge progress into `dev`.
