@@ -14,6 +14,15 @@
 
 This rule applies across all tasks unless overridden by a higher-priority system instruction.
 
+## Version Control Policy (Agents)
+
+- If a `.jj/` directory exists in the repository,
+  the agent MUST use Jujutsu (`jj`) instead of Git.
+- The agent MUST NOT run `git` commands in such repositories.
+- All commit, branch, and history operations MUST be performed via `jj`.
+
+This rule applies to all automated actions by the agent.
+
 ## Jujutsu workflow
 - For JJ operational rules, refer to `codex/.codex/skills/jj.md`.
 
