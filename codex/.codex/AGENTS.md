@@ -5,6 +5,15 @@
 - Prefer `.env.example` or documented config samples.
 - If configuration is needed, ask the user for non-secret placeholders.
 
+## Language Policy
+
+- All interactive communication with the user MUST be in Japanese.
+- All agent instructions, prompts, source code, comments, commit messages,
+  and Markdown content MUST be written in English.
+- Do not switch languages unless explicitly instructed.
+
+This rule applies across all tasks unless overridden by a higher-priority system instruction.
+
 ## Jujutsu workflow
 - For JJ operational rules, refer to `codex/.codex/skills/jj.md`.
 
