@@ -1,12 +1,15 @@
 local wezterm = require("wezterm")
 
-local config = wezterm.config_builder() or {}
+local config = wezterm.config_builder and wezterm.config_builder() or {}
 
 -- Appearance
 config.font = wezterm.font("BlexMono Nerd Font Mono")
 config.font_size = 14
 config.line_height = 1.1
 config.color_scheme = "Catppuccin Macchiato"
+
+config.automatically_reload_config = true
+config.use_ime = true
 
 -- Window / Effects
 config.window_background_opacity = 0.80
