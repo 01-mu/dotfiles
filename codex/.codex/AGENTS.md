@@ -26,6 +26,16 @@ This rule applies to all automated actions by the agent.
 ## Jujutsu workflow
 - For JJ operational rules, refer to `codex/.codex/skills/jj/SKILL.md`.
 
+## Verification and Reporting Policy
+- Apply this flow only for coding or behavioral changes; documentation-only edits do not require test execution.
+- Always follow: plan (max 3 bullets) -> implement minimal change -> run the primary test -> report and stop.
+- Use only a defined test entry point from README/Makefile/package metadata; if none exists, report "unable to run tests" and stop.
+- Limit test runs to 2 total: run once; if it fails, apply a minimal fix and rerun once; if it fails again, stop and report with up to 3 hypotheses and one next step.
+- Do not run extra checks (lint/type/e2e/bench) unless explicitly requested; at most one additional check.
+- Do not paste full logs; include only key lines (<= 15).
+- Avoid cost blowups: no brute-force retries, no mass installs or upgrades; when blocked, ask for the minimum needed info and stop.
+- When updating Codex policies, provide patches against this repository’s `codex/.codex/` content for the user to apply.
+
 ## Release and PR policy
 - For released products, never merge directly to `main`; merge progress into `dev`.
 - Only open `dev` -> `main` PRs when the user explicitly instructs it.
