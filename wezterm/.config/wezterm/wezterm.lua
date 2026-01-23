@@ -20,7 +20,7 @@ config.window_padding = {
   top = 10,
   bottom = 10,
 }
-config.window_decorations = "RESIZE|MACOS_FORCE_ENABLE_SHADOW"
+config.window_decorations = "TITLE|RESIZE|MACOS_FORCE_ENABLE_SHADOW"
 
 -- macOS
 config.macos_forward_to_ime_modifier_mask = "ALT"
