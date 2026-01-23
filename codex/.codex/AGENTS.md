@@ -24,7 +24,7 @@ This rule applies across all tasks unless overridden by a higher-priority system
 This rule applies to all automated actions by the agent.
 
 ## Jujutsu workflow
-- For JJ operational rules, refer to `codex/.codex/skills/jj.md`.
+- For JJ operational rules, refer to `codex/.codex/skills/jj/SKILL.md`.
 
 ## Release and PR policy
 - For released products, never merge directly to `main`; merge progress into `dev`.

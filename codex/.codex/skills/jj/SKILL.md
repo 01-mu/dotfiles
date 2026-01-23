@@ -1,3 +1,8 @@
+---
+name: jj
+description: Authoritative Jujutsu (jj) workflow rules and allowed commands. Use when performing version control operations in repositories that require jj or when deciding how to use jj safely.
+---
+
 # jj skill (authoritative)
 
 ## Purpose
