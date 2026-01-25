@@ -8,3 +8,5 @@ vim.opt.tabstop = 2
 
 -- Enable mouse
 vim.opt.mouse = "a"
+
+vim.cmd("syntax on")
