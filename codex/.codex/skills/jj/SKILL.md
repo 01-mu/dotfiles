@@ -24,6 +24,7 @@ All `jj git *` commands MUST follow "Plan -> Confirm -> Execute" before running.
 ### `jj git push`
 - Posture: confirmation-required and remote-modifying.
 - Preconditions: `jj status`, `jj log -r @`, `jj diff`, and identify target remote/branch explicitly.
+- Ensure: no commits to be pushed are missing descriptions; add descriptions with `jj describe` before pushing.
 - Never do: force-push equivalents, pushing rewritten history, pushing to protected branches (e.g., `main`, `master`, `release/*`) unless explicitly approved by the user.
 
 ### `jj git fetch`
@@ -141,6 +142,7 @@ If a command appears here, follow its guidance and pre-flight checks. If it does
 - Workflow: `jj new` -> work -> `jj describe` -> attach/move bookmark -> iterate.
 - Publish readiness: clean `jj status`, meaningful description, and reviewed diff.
 - History rewrite: allowed locally before publish; never after publish unless explicitly approved.
+- Change descriptions should use conventional prefixes and optional scopes, and be written in English (e.g., `feat(ui): ...`, `fix(api): ...`, `chore: ...`).
 
 ## Operating Procedures (SOP) Templates
 ### Read-only inspection
