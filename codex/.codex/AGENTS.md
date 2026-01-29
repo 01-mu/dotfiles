@@ -8,9 +8,11 @@
 ## Language Policy
 
 - All interactive communication with the user MUST be in Japanese.
-- All agent instructions, prompts, source code, comments, commit messages,
-  and Markdown content MUST be written in English.
-- Do not switch languages unless explicitly instructed.
+- For natural-language content produced for a project (commit messages, comments, docs, Markdown),
+  follow the project's language rules when they exist; otherwise default to English.
+- Do not switch languages in user-facing communication unless explicitly instructed.
+- If project-specific rules define commit message conventions, follow those rules even if they differ.
+- When editing Markdown, review surrounding context and make additions feel consistent and non-jarring.
 
 This rule applies across all tasks unless overridden by a higher-priority system instruction.
 
