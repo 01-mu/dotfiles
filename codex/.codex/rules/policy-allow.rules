@@ -33,3 +33,4 @@ prefix_rule(pattern=["npm", "run", "dev"], decision="allow")
 # docker: safe read/run helpers
 prefix_rule(pattern=["docker", "compose", "up"], decision="allow")
 prefix_rule(pattern=["docker", "compose", "ps"], decision="allow")
+prefix_rule(pattern=["docker", "ps"], decision="allow")
