@@ -24,7 +24,7 @@ This rule applies across all tasks unless overridden by a higher-priority system
 This rule applies to all automated actions by the agent.
 
 ## Jujutsu workflow
-- For JJ operational rules, refer to `codex/.codex/skills/jj/SKILL.md`.
+- For JJ operational rules, refer to `codex/.codex/skills/vcs/jj-workflow/SKILL.md`.
 
 ## Verification and Reporting Policy
 - Apply this flow only for coding or behavioral changes; documentation-only edits do not require test execution.

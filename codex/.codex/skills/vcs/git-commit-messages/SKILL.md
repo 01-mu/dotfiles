@@ -34,4 +34,3 @@ Define the required format, style, and granularity for git commit messages.
 - `fix(backend): handle nil config`
 - `docs: update setup notes`
 - `refactor: simplify config loading`
-

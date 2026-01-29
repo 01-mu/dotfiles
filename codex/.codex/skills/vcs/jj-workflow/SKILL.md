@@ -1,9 +1,9 @@
 ---
-name: jj
+name: jj-workflow
 description: Authoritative Jujutsu (jj) workflow rules and allowed commands. Use when performing version control operations in repositories that require jj or when deciding how to use jj safely.
 ---
 
-# jj skill (authoritative)
+# jj workflow (authoritative)
 
 ## Purpose
 Define the only allowed Jujutsu (jj) operational rules. This file is the single source of truth for all jj usage.
