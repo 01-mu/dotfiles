@@ -20,13 +20,10 @@ Define the required format, style, and granularity for git commit messages.
 - Start with a lowercase letter.
 - Do not use emojis.
 - Do not use `WIP` (uppercase or lowercase) in git commit messages.
-- Allow `wip` only for `jj` change descriptions.
 
-## Repository Scope and VCS Behavior
+## Repository Scope
 
 - Apply these rules to all repositories.
-- If a repository has a `.jj` directory, agents must prefer `jj` for operations.
-- Humans may continue to use `git` even when `.jj` exists.
 
 ## Examples
 
