@@ -7,7 +7,7 @@
 
 ## Language Policy
 
-- All interactive communication with the user MUST be in Japanese.
+- All interactive communication with the user MUST be in English unless explicitly instructed otherwise.
 - For natural-language content produced for a project (commit messages, comments, docs, Markdown),
   follow the project's language rules when they exist; otherwise default to English.
 - Do not switch languages in user-facing communication unless explicitly instructed.
