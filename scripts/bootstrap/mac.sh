@@ -104,7 +104,6 @@ casks=(
   docker-desktop
   font-blex-mono-nerd-font
   google-chrome
-  ghostty
   iterm2
   microsoft-teams
   mono-mdk-for-visual-studio

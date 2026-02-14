@@ -12,8 +12,8 @@ cd ~/dotfiles
 mac default (Linux too):
 
 ```shell
-stow -n nvim ghostty zsh vim git nix vscode-mac codex
-stow nvim ghostty zsh vim git nix vscode-mac codex
+stow -n nvim zsh vim git nix vscode-mac codex
+stow nvim zsh vim git nix vscode-mac codex
 ```
 
 Note: `vscode-linux` is also available.
