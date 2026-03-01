@@ -63,18 +63,15 @@ function chpwd() {
 #   eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 # fi
 
-export PATH="$HOME/.local/share/mise/shims:$PATH"
-
-# initialize mise
-if command -v mise >/dev/null 2>&1; then
-  eval "$(mise activate zsh)"
+# initialize zoxide(= z command)
+if command -v zoxide >/dev/null 2>&1; then
+  eval "$(zoxide init zsh)"
 fi
 
-# initialize zoxide(= z command)
-eval "$(zoxide init zsh)"
-
 # initialize direnv
-eval "$(direnv hook zsh)"
+if command -v direnv >/dev/null 2>&1; then
+  eval "$(direnv hook zsh)"
+fi
 #--------------------------------------------------------------------------------
 # Alias
 #--------------------------------------------------------------------------------

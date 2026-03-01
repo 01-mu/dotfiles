@@ -18,6 +18,14 @@ stow nvim zsh vim git nix vscode-mac codex
 
 Note: `vscode-linux` is also available.
 
+## Nix flake
+
+```shell
+nix develop
+```
+
+This enters the default development shell from `flake.nix`.
+
 ## Codex
 
 ### Safe wrapper

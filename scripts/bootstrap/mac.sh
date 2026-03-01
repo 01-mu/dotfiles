@@ -56,7 +56,6 @@ formulae=(
   luv
   lz4
   m4
-  mise
   mpfr
   mysql
   ncurses
@@ -70,6 +69,7 @@ formulae=(
   pcre2
   pinentry
   pkgconf
+  nix
   postgresql@14
   protobuf
   readline
@@ -122,16 +122,5 @@ brew install "${formulae[@]}"
 
 echo "Installing Homebrew casks..."
 brew install --cask "${casks[@]}"
-
-echo "Configuring mise globals (latest at setup time)..."
-mise use -g java@latest
-mise use -g node@latest
-mise use -g pnpm@latest
-mise use -g python@latest
-mise use -g rust@stable
-mise use -g zoxide@latest
-
-echo "Installing extra mise tool versions..."
-mise install flutter@3.32.6-stable terraform@1.6.0 npm@11.5.2
 
 echo "Bootstrap complete."
