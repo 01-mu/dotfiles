@@ -12,8 +12,8 @@ cd ~/dotfiles
 mac default (Linux too):
 
 ```shell
-stow -n nvim zsh vim git nix vscode-mac codex
-stow nvim zsh vim git nix vscode-mac codex
+stow -n nvim zsh vim git nix vscode-mac codex ghq
+stow nvim zsh vim git nix vscode-mac codex ghq
 ```
 
 Note: `vscode-linux` is also available.
@@ -25,6 +25,17 @@ nix develop
 ```
 
 This enters the default development shell from `flake.nix`.
+
+## ghq
+
+```shell
+ghq get https://github.com/OWNER/REPO
+ghq list
+```
+
+This repo manages the `ghq` config too. The root is `~/ghq`, so GitHub repositories are stored under `~/ghq/github.com/OWNER/REPO`.
+
+Clone with `ghq get`, then move to a repo under `$(ghq root)`.
 
 ## Codex
 

@@ -27,6 +27,7 @@ formulae=(
   gcc
   gettext
   gh
+  ghq
   git
   gmp
   gnupg
