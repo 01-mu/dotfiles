@@ -27,7 +27,7 @@
     "diffEditor.ignoreTrimWhitespace": false,
     "docker.extension.enableComposeLanguageServer": false,
     "typescript.updateImportsOnFileMove.enabled": "always",
-    "workbench.colorTheme": "Dracula Theme",
+    "workbench.colorTheme": "Aura Soft Dark",
     "editor.renderWhitespace": "all",
     "indentRainbow.indicatorStyle": "light",
     "indentRainbow.colors": [
