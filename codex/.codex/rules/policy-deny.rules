@@ -23,7 +23,7 @@ prefix_rule(
 prefix_rule(
     pattern = ["rm"],
     decision = "forbidden",
-    justification = "Blocked: destructive file deletion. Prefer safe, explicit manual runs.",
+    justification = "Blocked: use `trash` instead of `rm` for file deletion.",
     match = ["rm -rf ."],
 )
 
