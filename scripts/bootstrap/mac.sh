@@ -70,7 +70,6 @@ formulae=(
   pcre2
   pinentry
   pkgconf
-  nix
   postgresql@14
   protobuf
   readline
@@ -87,7 +86,7 @@ formulae=(
   usage
   utf8proc
   xz
-  z
+  zoxide
   zlib
   zstd
 )

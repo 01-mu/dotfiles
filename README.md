@@ -12,19 +12,11 @@ cd ~/dotfiles
 mac default (Linux too):
 
 ```shell
-stow -n nvim zsh vim git nix vscode-mac codex ghq
-stow nvim zsh vim git nix vscode-mac codex ghq
+stow -n nvim zsh vim git vscode-mac codex ghq
+stow nvim zsh vim git vscode-mac codex ghq
 ```
 
 Note: `vscode-linux` is also available.
-
-## Nix flake
-
-```shell
-nix develop
-```
-
-This enters the default development shell from `flake.nix`.
 
 ## ghq
 
