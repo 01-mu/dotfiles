@@ -85,6 +85,12 @@ alias ..='cd ../'
 alias ...='cd ../../'
 alias j=z
 
+repo() {
+  local dir
+  dir="$(ghq list | fzf)" || return
+  cd "$(ghq root)/$dir"
+}
+
 # git (aliases via git-alias.sh)
 alias g='git'
 
