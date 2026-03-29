@@ -120,16 +120,6 @@ alias dce='docker compose exec'
 alias dcd='docker compose down'
 
 #--------------------------------------------------------------------------------
-# Expo Go
-#--------------------------------------------------------------------------------
-# export WSL_HOST=$(tail -1 /etc/resolv.conf | cut -d' ' -f2)
-# export ADB_SERVER_SOCKET=tcp:$WSL_HOST:5037
-# export ADB_TRACE=adb
-# export EXPO_DEBUG=1
-# export ANDROID_SERIAL=emulator-5554
-# export REACT_NATIVE_PACKAGER_HOSTNAME=$(ip addr show eth0 | grep -oP '(?<=inet\s)\d+(\.\d+){3}')
-
-#--------------------------------------------------------------------------------
 # Japanese Character
 #--------------------------------------------------------------------------------
 export GTK_IM_MODULE=fcitx
