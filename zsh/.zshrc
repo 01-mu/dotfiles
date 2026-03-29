@@ -74,11 +74,6 @@ function chpwd() {
 # Tool Path
 #--------------------------------------------------------------------------------
 
-# initialize linuxbrew
-# if [[ "$(uname)" == "Linux" ]]; then
-#   eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-# fi
-
 # initialize zoxide(= z command)
 if command -v zoxide >/dev/null 2>&1; then
   eval "$(zoxide init zsh)"
