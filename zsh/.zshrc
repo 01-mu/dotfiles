@@ -25,6 +25,22 @@ SAVEHIST=1000000            # size of history in disk(is $HISTFILE)
 setopt inc_append_history   # append history to the history file immediately, not when the shell exits
 setopt share_history        # share history between all sessions
 
+# search command history with Ctrl-R
+if command -v fzf >/dev/null 2>&1; then
+  fzf-history-widget() {
+    local selected
+
+    selected=$(fc -rl 1 \
+      | sed 's/^[[:space:]]*[0-9]\+[[:space:]]*//' \
+      | fzf --tac +s) || return
+
+    LBUFFER+="$selected"
+  }
+
+  zle -N fzf-history-widget
+  bindkey '^R' fzf-history-widget
+fi
+
 #--------------------------------------------------------------------------------
 # Complement
 #--------------------------------------------------------------------------------
