@@ -126,8 +126,3 @@ export GTK_IM_MODULE=fcitx
 export QT_IM_MODULE=fcitx
 export XMODIFIERS=@im=fcitx
 
-# for my develop
-source "${XDG_CONFIG_HOME:-$HOME/.config}/back-directory/bd.zsh"
-
-# moonbit
-export PATH="$HOME/.moon/bin:$PATH"
