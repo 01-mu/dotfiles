@@ -118,12 +118,6 @@ alias dcu='docker compose up -d'
 alias dce='docker compose exec'
 alias dcd='docker compose down'
 
-# python
-alias uvimain='uvicorn main:app --reload'
-
-# java
-export PATH="$HOME/.local/springboot/bin:$PATH"
-
 #--------------------------------------------------------------------------------
 # Expo Go
 #--------------------------------------------------------------------------------
