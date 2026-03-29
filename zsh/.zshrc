@@ -113,11 +113,3 @@ alias dcr='docker compose restart'
 alias dcu='docker compose up -d'
 alias dce='docker compose exec'
 alias dcd='docker compose down'
-
-#--------------------------------------------------------------------------------
-# Japanese Character
-#--------------------------------------------------------------------------------
-export GTK_IM_MODULE=fcitx
-export QT_IM_MODULE=fcitx
-export XMODIFIERS=@im=fcitx
-
