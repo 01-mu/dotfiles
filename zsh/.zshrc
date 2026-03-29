@@ -101,6 +101,7 @@ alias ..='cd ../'
 alias ...='cd ../../'
 alias j=z
 
+# open a repository from ghq list using fzf
 repo() {
   local dir
   dir="$(ghq list | fzf)" || return
