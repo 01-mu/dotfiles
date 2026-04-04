@@ -12,11 +12,14 @@ cd ~/dotfiles
 mac default (Linux too):
 
 ```shell
-stow -n nvim zsh vim git vscode-mac codex ghq
-stow nvim zsh vim git vscode-mac codex ghq
+stow -n zsh vim git vscode-mac codex ghq
+stow zsh vim git vscode-mac codex ghq
 ```
 
 Note: `vscode-linux` is also available.
+
+Archived packages live under `archive/` and are not part of the active Stow set:
+`archive/nvim`, `archive/wezterm`, `archive/tmux`.
 
 ## ghq
 
