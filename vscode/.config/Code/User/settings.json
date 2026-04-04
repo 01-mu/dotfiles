@@ -29,6 +29,14 @@
     "typescript.updateImportsOnFileMove.enabled": "always",
     "workbench.colorTheme": "Aura Soft Dark",
     "editor.renderWhitespace": "all",
+    "github.copilot.enable": {
+        "*": true
+    },
+    "indentRainbow.includedLanguages": [
+        "html",
+        "python",
+        "dockercompose"
+    ],
     "indentRainbow.indicatorStyle": "light",
     "indentRainbow.colors": [
         "rgba(128,  64,  64, 1)",

@@ -2,12 +2,12 @@
 
 ## Project Structure & Module Organization
 
-This repository is a dotfiles source of truth designed for GNU Stow. Each top-level directory is a Stow package for an app or tool (e.g., `nvim/`, `zsh/`, `git/`, `wezterm/`, `vscode-mac/`, `tmux/`). App-specific config files live under those package roots (often in `.config/...`). Shared automation lives in `scripts/`. Platform-specific notes live in `windows/`. The `vscode-linux/` and `vscode-mac/` packages provide OS-specific settings; pick the one that matches the host.
+This repository is a dotfiles source of truth designed for GNU Stow. Each top-level directory is a Stow package for an app or tool (e.g., `zsh/`, `git/`, `vscode/`). App-specific config files live under those package roots (often in `.config/...`). Shared automation lives in `scripts/`. Platform-specific notes live in `windows/`. VS Code settings are unified under `vscode/`, with both macOS and Linux paths represented there.
 
 ## Build, Test, and Development Commands
 
-- `stow -n nvim zsh vim git vscode-mac codex` — dry-run to preview links.
-- `stow nvim zsh vim git vscode-mac codex` — apply symlinks into `$HOME`.
+- `stow -n zsh vim git vscode codex` — dry-run to preview links.
+- `stow zsh vim git vscode codex` — apply symlinks into `$HOME`.
 - `./scripts/bootstrap/mac.sh` — macOS bootstrap helper.
 
 There is no build system. Validate changes by reloading the target app (e.g., restart WezTerm, reopen Neovim) and confirming expected behavior.
