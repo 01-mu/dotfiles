@@ -34,3 +34,12 @@ prefix_rule(pattern=["npm", "run", "dev"], decision="allow")
 prefix_rule(pattern=["docker", "compose", "up"], decision="allow")
 prefix_rule(pattern=["docker", "compose", "ps"], decision="allow")
 prefix_rule(pattern=["docker", "ps"], decision="allow")
+
+# nix: local development shells and common commands
+prefix_rule(pattern=["nix", "shell"], decision="allow")
+prefix_rule(pattern=["nix", "develop", "-c"], decision="allow")
+prefix_rule(pattern=["nix", "develop", "-c", "true"], decision="allow")
+
+# bun: common flake-based install/test entry points
+prefix_rule(pattern=["nix", "--extra-experimental-features", "nix-command flakes", "develop", "-c", "bun", "install"], decision="allow")
+prefix_rule(pattern=["nix", "--extra-experimental-features", "nix-command flakes", "develop", "-c", "bun", "run", "test"], decision="allow")
