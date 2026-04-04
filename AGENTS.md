@@ -6,8 +6,8 @@ This repository is a dotfiles source of truth designed for GNU Stow. Each top-le
 
 ## Build, Test, and Development Commands
 
-- `stow -n zsh vim git vscode codex` — dry-run to preview links.
-- `stow zsh vim git vscode codex` — apply symlinks into `$HOME`.
+- `stow -n -t "$HOME" zsh vim git vscode codex` — dry-run to preview links.
+- `stow -t "$HOME" zsh vim git vscode codex` — apply symlinks into `$HOME`.
 - `./scripts/bootstrap/mac.sh` — macOS bootstrap helper.
 
 There is no build system. Validate changes by reloading the target app (e.g., restart WezTerm, reopen Neovim) and confirming expected behavior.

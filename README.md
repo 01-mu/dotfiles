@@ -1,19 +1,19 @@
 # dotfiles
 
-Source of truth for my dotfiles. Edit only under `~/dotfiles`.
+Source of truth for my dotfiles. Edit only in this repository checkout, typically under `$(ghq root)/github.com/01-mu/dotfiles`.
 Prereq: GNU stow.
 
 ## Stow usage
 
 ```shell
-cd ~/dotfiles
+cd "$(ghq root)/github.com/01-mu/dotfiles"
 ```
 
 mac default (Linux too):
 
 ```shell
-stow -n zsh vim git vscode codex ghq
-stow zsh vim git vscode codex ghq
+stow -n -t "$HOME" zsh vim git vscode codex ghq
+stow -t "$HOME" zsh vim git vscode codex ghq
 ```
 
 Archived packages live under `archive/` and are not part of the active Stow set:
