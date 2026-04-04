@@ -29,12 +29,33 @@ setopt share_history        # share history between all sessions
 if command -v fzf >/dev/null 2>&1; then
   fzf-history-widget() {
     local selected
+    local -a parts
+    local token
+    local output=""
 
     selected=$(fc -rl 1 \
       | sed 's/^[[:space:]]*[0-9]\+[[:space:]]*//' \
       | fzf --tac +s) || return
 
-    LBUFFER+="$selected"
+    parts=(${(z)selected})
+    (( ${#parts[@]} > 1 )) || return
+
+    for token in "${parts[@]:1}"; do
+      if [[ -n "$output" ]]; then
+        output+=" "
+      fi
+
+      case "$token" in
+        '|'|'||'|'&'|'&&'|';'|';;'|';&'|';;&'|'(' | ')'|'<'|'>'|'<<'|'>>'|'<<<'|'<&'|'>&'|'<>'|'>|')
+          output+="$token"
+          ;;
+        *)
+          output+="${(q-)${(Q)token}}"
+          ;;
+      esac
+    done
+
+    LBUFFER+="$output"
   }
 
   zle -N fzf-history-widget
