@@ -117,11 +117,13 @@ alias ..='cd ../'
 alias ...='cd ../../'
 alias j=z
 
-# open a repository from ghq list using fzf
+# open a repository by vscode from ghq list using fzf
 repo() {
-  local dir
+  local dir repo_path
   dir="$(ghq list | fzf)" || return
-  cd "$(ghq root)/$dir"
+  repo_path="$(ghq root)/$dir"
+  cd "$repo_path" || return
+  code -r "$repo_path"
 }
 
 # git (aliases via git-alias.sh)
