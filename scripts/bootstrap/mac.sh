@@ -16,13 +16,19 @@ brew update
 
 formulae=(
   abseil
+  ada-url
   asciinema
   autoconf
   bash
+  brotli
+  c-ares
   ca-certificates
   cocoapods
+  dav1d
   direnv
   docker-compose
+  ffmpeg
+  fmt
   fzf
   gcc
   gettext
@@ -42,16 +48,19 @@ formulae=(
   libevent
   libgcrypt
   libgpg-error
-  libiconv
   libidn2
   libksba
   libmpc
   libnghttp2
+  libnghttp3
+  libngtcp2
   libtasn1
   libunistring
   libusb
   libuv
+  libvpx
   libyaml
+  llhttp
   lpeg
   luajit
   luv
@@ -64,56 +73,58 @@ formulae=(
   nettle
   nginx
   nkf
+  node
   npth
   openssl@3
+  opus
   p11-kit
   pcre2
   pinentry
   pkgconf
-  postgresql@14
   protobuf
   readline
   ripgrep
   ruby
   ruby-build
+  sdl2
+  simdjson
+  sqlite
   stow
   tmux
-  tree-sitter@0.25
   tree-sitter
   tree-sitter-cli
   unbound
   unibilium
-  usage
   utf8proc
+  uvwasi
+  x264
+  x265
   xz
+  z
   zoxide
-  zlib
+  zlib-ng-compat
   zstd
 )
 
 casks=(
   android-commandlinetools
-  asana
   brave-browser
   chatgpt-atlas
   codex
+  codex-app
   coteditor
-  dbeaver-community
   discord
   docker
   docker-desktop
   font-blex-mono-nerd-font
   google-chrome
-  iterm2
   microsoft-teams
-  mono-mdk-for-visual-studio
   obsidian
   pgadmin4
   powershell
   scroll-reverser
-  tableplus
+  unity-hub
   visual-studio-code
-  warp
   zoom
 )
 
