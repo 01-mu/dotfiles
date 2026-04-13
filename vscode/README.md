@@ -1,6 +1,6 @@
 # vscode
 
-Unified VS Code Stow package for both Linux and macOS.
+Unified VS Code config source for both Linux and macOS.
 
 ## Linux
 
@@ -10,7 +10,7 @@ Unified VS Code Stow package for both Linux and macOS.
 ## macOS
 
 - Settings path: `Library/Application Support/Code/User/settings.json`
-- This path is a symlink to `.config/Code/User/settings.json` within this package.
+- `home-manager` links this path to the tracked settings file.
 
 ## Shared
 

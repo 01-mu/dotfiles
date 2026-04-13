@@ -2,16 +2,16 @@
 
 ## Project Structure & Module Organization
 
-This repository is a dotfiles source of truth designed for GNU Stow. Each top-level directory is a Stow package for an app or tool (e.g., `zsh/`, `git/`, `vscode/`). App-specific config files live under those package roots (often in `.config/...`). Shared automation lives in `scripts/`. Platform-specific notes live in `windows/`. VS Code settings are unified under `vscode/`, with both macOS and Linux paths represented there.
+This repository is a dotfiles source of truth managed with `home-manager` and `nix-darwin` on macOS. The tracked config sources still live in app-specific top-level directories such as `zsh/`, `git/`, `ghq/`, `vim/`, `vscode/`, and `codex/`. Nix entrypoints live in `flake.nix` and `modules/`. Shared automation lives in `scripts/`. Platform-specific notes live in `windows/`.
 
 ## Build, Test, and Development Commands
 
-- `stow -n -t "$HOME" zsh vim git vscode codex` — dry-run to preview links.
-- `stow -t "$HOME" zsh vim git vscode codex` — apply symlinks into `$HOME`.
-- `./scripts/bootstrap/mac.sh` — macOS bootstrap helper.
+- `./scripts/bootstrap/mac.sh` — first macOS apply via `nix-darwin`.
+- `darwin-rebuild switch --flake .#01-mu` — apply the macOS system and `home-manager` config.
+- `home-manager switch --flake .#01-mu` — apply the user-level config only.
 
 There is no build system. Validate changes by reloading the target app (e.g., restart WezTerm, reopen Neovim) and confirming expected behavior.
-When adding new files or packages, run Stow (after a dry-run) so the symlinks are actually applied.
+When adding new managed files, wire them into the relevant Nix module before applying the flake.
 
 ## Coding Style & Naming Conventions
 

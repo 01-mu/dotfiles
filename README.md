@@ -1,22 +1,30 @@
 # dotfiles
 
 Source of truth for my dotfiles. Edit only in this repository checkout, typically under `$(ghq root)/github.com/01-mu/dotfiles`.
-Prereq: GNU stow.
+macOS is managed with `nix-darwin` plus `home-manager`.
+Prereq: Nix with flakes enabled.
 
-## Stow usage
+## Apply on macOS
 
 ```shell
 cd "$(ghq root)/github.com/01-mu/dotfiles"
 ```
 
-mac default (Linux too):
+First switch:
 
 ```shell
-stow -n -t "$HOME" zsh vim git vscode codex ghq
-stow -t "$HOME" zsh vim git vscode codex ghq
+./scripts/bootstrap/mac.sh
 ```
 
-Archived packages live under `archive/` and are not part of the active Stow set:
+Later switches:
+
+```shell
+darwin-rebuild switch --flake .#01-mu
+```
+
+`home-manager` is wired through the Darwin configuration, so one switch applies both system settings and user dotfiles. The tracked source files remain in the existing package directories such as `zsh/`, `vim/`, `git/`, `ghq/`, `vscode/`, and `codex/`.
+
+Archived packages live under `archive/` and are not part of the active configuration:
 `archive/nvim`, `archive/wezterm`, `archive/tmux`.
 
 ## ghq
