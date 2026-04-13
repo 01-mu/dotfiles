@@ -23,7 +23,7 @@
         inherit system;
         specialArgs = { inherit user; };
         modules = [
-          ./modules/darwin
+          ./nix/modules/darwin
           home-manager.darwinModules.home-manager
           {
             nixpkgs.config.allowUnfree = true;
@@ -31,7 +31,7 @@
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             home-manager.extraSpecialArgs = { inherit user; };
-            home-manager.users.${user} = import ./modules/home;
+            home-manager.users.${user} = import ./nix/modules/home;
           }
         ];
       };
@@ -39,7 +39,7 @@
       homeConfigurations.${profile} = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
         extraSpecialArgs = { inherit user; };
-        modules = [ ./modules/home ];
+        modules = [ ./nix/modules/home ];
       };
     };
 }

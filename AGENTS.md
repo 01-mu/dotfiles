@@ -2,7 +2,7 @@
 
 ## Project Structure & Module Organization
 
-This repository is a dotfiles source of truth managed with `home-manager` and `nix-darwin` on macOS. The tracked config sources still live in app-specific top-level directories such as `zsh/`, `git/`, `ghq/`, `vim/`, `vscode/`, and `codex/`. Nix entrypoints live in `flake.nix` and `modules/`. Shared automation lives in `scripts/`. Platform-specific notes live in `windows/`.
+This repository is a dotfiles source of truth managed with `home-manager` and `nix-darwin` on macOS. Put files that should land in `$HOME` under `home/`, mirroring their target paths. Keep Nix code under `nix/`, with `flake.nix` at the repo root and modules under `nix/modules/`. Keep Codex-specific assets under `codex/`, shared automation under `scripts/`, and platform-specific notes or configs under `windows/`.
 
 ## Build, Test, and Development Commands
 

@@ -22,7 +22,15 @@ Later switches:
 darwin-rebuild switch --flake .#01-mu
 ```
 
-`home-manager` is wired through the Darwin configuration, so one switch applies both system settings and user dotfiles. The tracked source files remain in the existing package directories such as `zsh/`, `vim/`, `git/`, `ghq/`, `vscode/`, and `codex/`.
+`home-manager` is wired through the Darwin configuration, so one switch applies both system settings and user dotfiles.
+
+## Layout
+
+- `home/` mirrors files that land in `$HOME`, such as `.zshrc`, `.vimrc`, and `.config/...`.
+- `nix/` contains the Nix modules used by `flake.nix`.
+- `codex/` keeps Codex-specific policies, prompts, rules, and skills.
+- `vscode/` keeps editor metadata such as `extensions.txt`.
+- `windows/` keeps Windows-specific setup files.
 
 Archived packages live under `archive/` and are not part of the active configuration:
 `archive/nvim`, `archive/wezterm`, `archive/tmux`.
