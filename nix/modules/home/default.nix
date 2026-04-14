@@ -1,4 +1,4 @@
-{ user, ... }:
+{ user, lib, ... }:
 {
   home.username = user;
   home.homeDirectory = "/Users/${user}";
@@ -9,7 +9,6 @@
   home.file = {
     ".zshrc".source = ../../../home/.zshrc;
     ".vimrc".source = ../../../home/.vimrc;
-    ".codex".source = ../../../codex/.codex;
 
     ".config/git/config".source = ../../../home/.config/git/config;
     ".config/git/ignore".source = ../../../home/.config/git/ignore;
@@ -20,4 +19,10 @@
     "Library/Application Support/Code/User/settings.json".source =
       ../../../home/.config/Code/User/settings.json;
   };
+
+  home.activation.copyCodex = lib.hm.dag.entryAfter ["writeBoundary"] ''
+    rm -rf ~/.codex
+    cp -r ${../../../codex/.codex} ~/.codex
+    chmod -R u+w ~/.codex
+  '';
 }
