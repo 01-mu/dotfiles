@@ -23,6 +23,7 @@ darwin-rebuild switch --flake .#01-mu
 ```
 
 `home-manager` is wired through the Darwin configuration, so one switch applies both system settings and user dotfiles.
+The managed macOS packages live in [`nix/modules/darwin/default.nix`](nix/modules/darwin/default.nix) under `homebrew.brews` and `homebrew.casks`.
 
 ## Layout
 
@@ -31,9 +32,6 @@ darwin-rebuild switch --flake .#01-mu
 - `codex/` keeps Codex-specific policies, prompts, rules, and skills.
 - `vscode/` keeps editor metadata such as `extensions.txt`.
 - `windows/` keeps Windows-specific setup files.
-
-Archived packages live under `archive/` and are not part of the active configuration:
-`archive/nvim`, `archive/wezterm`, `archive/tmux`.
 
 ## ghq
 
