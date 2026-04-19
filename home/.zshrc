@@ -201,4 +201,4 @@ alias dce='docker compose exec'
 alias dcd='docker compose down'
 
 # home-manager
-alias hms="home-manager switch --flake .#01-mu"
+alias hms="home-manager switch -b backup --flake .#01-mu"
