@@ -11,6 +11,7 @@
 
     casks = [
       "chatgpt-atlas"
+      "codex"
       "discord"
       "docker-desktop"
       "google-chrome"
