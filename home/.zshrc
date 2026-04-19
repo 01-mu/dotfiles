@@ -115,13 +115,19 @@ alias ..='cd ../'
 alias ...='cd ../../'
 alias j=z
 
+# select a repository from ghq and return its full path
+repo_path() {
+  local dir
+  dir="$(ghq list | fzf)" || return
+  printf '%s\n' "$(ghq root)/$dir"
+}
+
 # open a repository by vscode from ghq list using fzf
 repo() {
-  local dir repo_path
-  dir="$(ghq list | fzf)" || return
-  repo_path="$(ghq root)/$dir"
-  cd "$repo_path" || return
-  code -r "$repo_path"
+  local repo_path_value
+  repo_path_value="$(repo_path)" || return
+  cd "$repo_path_value" || return
+  code -r "$repo_path_value"
 }
 
 # git (aliases via git-alias.sh)
@@ -134,3 +140,6 @@ alias dcr='docker compose restart'
 alias dcu='docker compose up -d'
 alias dce='docker compose exec'
 alias dcd='docker compose down'
+
+# home-manager
+alias hms="home-manager switch --flake .#01-mu"
