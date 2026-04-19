@@ -138,6 +138,60 @@ repo() {
 # git (aliases via git-alias.sh)
 alias g='git'
 
+# generate commit messages from the staged diff and split into logical commits
+ai-commit() {
+  if ! command -v codex >/dev/null 2>&1; then
+    echo "codex: command not found" >&2
+    return 127
+  fi
+
+  if git diff --cached --quiet; then
+    echo "No staged changes."
+    return 1
+  fi
+
+  DIFF=$(git diff --cached)
+
+  PLAN=$(codex exec <<EOF
+Analyze the following git diff and split it into logical commits.
+
+Return JSON:
+[
+  {
+    "message": "...",
+    "files": ["..."]
+  }
+]
+
+Rules:
+- Use Conventional Commits
+- Group by logical concern
+- Avoid mixing unrelated changes
+
+Diff:
+$DIFF
+EOF
+)
+
+  echo "---- Proposed commit plan ----"
+  echo "$PLAN"
+  echo "------------------------------"
+
+  read "CONFIRM?Proceed with this plan? (y/N): "
+  [[ "$CONFIRM" != "y" ]] && return 0
+
+  echo "$PLAN" | jq -c '.[]' | while read -r entry; do
+    MSG=$(echo "$entry" | jq -r '.message')
+    FILES=$(echo "$entry" | jq -r '.files[]')
+
+    git reset
+    git add $FILES
+
+    echo "Committing: $MSG"
+    git commit -F - <<< "$MSG"
+  done
+}
+
 # docker
 alias dc='docker compose'
 alias dcb='docker compose build'
