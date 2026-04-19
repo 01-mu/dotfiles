@@ -135,6 +135,12 @@ repo() {
   printf '%s\n' "$selected_repo_path"
 }
 
+repo-code() {
+  code -r "$(repo)"
+}
+
+alias rc='repo-code'
+
 # git (aliases via git-alias.sh)
 alias g='git'
 
