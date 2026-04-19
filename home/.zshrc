@@ -122,12 +122,17 @@ repo_path() {
   printf '%s\n' "$(ghq root)/$dir"
 }
 
-# open a repository by vscode from ghq list using fzf
+# move to a selected repository, or print the path when used in command substitution
 repo() {
-  local repo_path_value
-  repo_path_value="$(repo_path)" || return
-  cd "$repo_path_value" || return
-  code -r "$repo_path_value"
+  local selected_repo_path
+  selected_repo_path="$(repo_path)" || return
+
+  if [[ -t 1 ]]; then
+    cd "$selected_repo_path" || return
+    return
+  fi
+
+  printf '%s\n' "$selected_repo_path"
 }
 
 # git (aliases via git-alias.sh)
