@@ -1,6 +1,7 @@
 { pkgs, ... }:
 {
   home.packages = with pkgs; [
+    aider-chat
     fzf
     gh
     ghq
@@ -8,6 +9,8 @@
     ripgrep
     zoxide
   ];
+
+  services.ollama.enable = true;
 
   programs.direnv.enable = true;
   programs.direnv.enableZshIntegration = true;
