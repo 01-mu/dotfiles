@@ -1,4 +1,4 @@
-{ user, lib, ... }:
+{ user, lib, pkgs, ... }:
 {
   home.username = user;
   home.homeDirectory = "/Users/${user}";
@@ -18,9 +18,19 @@
       ../../../home/.config/Code/User/settings.json;
   };
 
-  home.activation.copyCodex = lib.hm.dag.entryAfter ["writeBoundary"] ''
-    rm -rf ~/.codex
-    cp -r ${../../../codex/.codex} ~/.codex
-    chmod -R u+w ~/.codex
+  home.activation.copyCodex = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+    # codex/.codex is the version-controlled source of truth.
+    # ~/.codex is a writable runtime copy used by Codex.
+    mkdir -p "$HOME/.codex"
+    ${pkgs.rsync}/bin/rsync -a \
+      --exclude 'auth.json' \
+      --exclude 'cache/' \
+      --exclude 'logs/' \
+      --exclude 'sessions/' \
+      --exclude 'history*' \
+      --exclude '*.tmp' \
+      --exclude '*.lock' \
+      ${../../../codex/.codex}/ "$HOME/.codex/"
+    chmod -R u+w "$HOME/.codex"
   '';
 }
