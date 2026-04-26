@@ -24,10 +24,25 @@
     mkdir -p "$HOME/.codex"
     ${pkgs.rsync}/bin/rsync -a \
       --exclude 'auth.json' \
+      --exclude '.codex-global-state.json*' \
+      --exclude '.personality_migration' \
+      --exclude 'ambient-suggestions/' \
       --exclude 'cache/' \
+      --exclude 'installation_id' \
+      --exclude 'log/' \
       --exclude 'logs/' \
+      --exclude 'logs_*.sqlite*' \
+      --exclude 'models_cache.json' \
+      --exclude 'session_index.jsonl' \
       --exclude 'sessions/' \
+      --exclude 'shell_snapshots/' \
+      --exclude 'sqlite/' \
+      --exclude 'state_*.sqlite*' \
+      --exclude 'tmp/' \
+      --exclude 'vendor_imports/' \
+      --exclude 'version.json' \
       --exclude 'history*' \
+      --exclude '*.sqlite*' \
       --exclude '*.tmp' \
       --exclude '*.lock' \
       ${../../../codex/.codex}/ "$HOME/.codex/"
