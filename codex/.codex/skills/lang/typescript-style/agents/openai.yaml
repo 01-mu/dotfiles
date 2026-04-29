@@ -1,0 +1,4 @@
+interface:
+  display_name: "TypeScript Style"
+  short_description: "Prefer const and functional TypeScript patterns."
+  default_prompt: "Use TypeScript style guidance."
