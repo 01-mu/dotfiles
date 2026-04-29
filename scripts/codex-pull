@@ -4,8 +4,8 @@ set -euo pipefail
 script_dir="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
 repo_root="$(cd -- "$script_dir/.." && pwd)"
 
-# codex/.codex is the version-controlled source of truth.
-# ~/.codex is a writable runtime copy used by Codex.
+# codex/.codex keeps hand-authored Codex policy/config.
+# ~/.codex also contains runtime and Codex-managed files; keep those out of Git.
 mkdir -p "$repo_root/codex/.codex"
 rsync -a \
   --exclude 'auth.json' \
@@ -13,14 +13,17 @@ rsync -a \
   --exclude '.personality_migration' \
   --exclude 'ambient-suggestions/' \
   --exclude 'cache/' \
+  --exclude 'config.toml' \
   --exclude 'installation_id' \
   --exclude 'log/' \
   --exclude 'logs/' \
   --exclude 'logs_*.sqlite*' \
   --exclude 'models_cache.json' \
+  --exclude 'rules/default.rules' \
   --exclude 'session_index.jsonl' \
   --exclude 'sessions/' \
   --exclude 'shell_snapshots/' \
+  --exclude 'skills/.system/' \
   --exclude 'sqlite/' \
   --exclude 'state_*.sqlite*' \
   --exclude 'tmp/' \

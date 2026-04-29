@@ -19,8 +19,8 @@
   };
 
   home.activation.copyCodex = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
-    # codex/.codex is the version-controlled source of truth.
-    # ~/.codex is a writable runtime copy used by Codex.
+    # codex/.codex keeps hand-authored Codex policy/config.
+    # ~/.codex also contains runtime and Codex-managed files; keep those writable.
     mkdir -p "$HOME/.codex"
     ${pkgs.rsync}/bin/rsync -a \
       --exclude 'auth.json' \
@@ -28,14 +28,17 @@
       --exclude '.personality_migration' \
       --exclude 'ambient-suggestions/' \
       --exclude 'cache/' \
+      --exclude 'config.toml' \
       --exclude 'installation_id' \
       --exclude 'log/' \
       --exclude 'logs/' \
       --exclude 'logs_*.sqlite*' \
       --exclude 'models_cache.json' \
+      --exclude 'rules/default.rules' \
       --exclude 'session_index.jsonl' \
       --exclude 'sessions/' \
       --exclude 'shell_snapshots/' \
+      --exclude 'skills/.system/' \
       --exclude 'sqlite/' \
       --exclude 'state_*.sqlite*' \
       --exclude 'tmp/' \
