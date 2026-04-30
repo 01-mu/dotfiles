@@ -1,6 +1,8 @@
 # home
 
 Tracked files in this directory mirror their target paths under `$HOME`.
+Home Manager links these files out of the working tree so edits in this
+repository are visible without copying files through the Nix store.
 
 Examples:
 

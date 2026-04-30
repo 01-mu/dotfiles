@@ -50,6 +50,9 @@ Clone with `ghq get`, then move to a repo under `$(ghq root)`.
 
 ## Codex
 
+Home Manager syncs repository-managed files from `codex/.codex/` into `~/.codex/`.
+Runtime files, caches, secrets, and machine-local Codex state stay only under `~/.codex/`.
+
 ### Safe wrapper
 
 ```shell
