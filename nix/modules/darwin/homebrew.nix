@@ -20,6 +20,7 @@
       "obsidian"
       "unity-hub"
       "visual-studio-code"
+      "zed"
       "zoom"
     ];
   };

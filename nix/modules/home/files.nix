@@ -55,6 +55,9 @@ in
       outOfStore "home/.config/Code/User/settings.json";
     "Library/Application Support/Code/User/settings.json".source =
       outOfStore "home/.config/Code/User/settings.json";
+
+    ".config/zed/settings.json".source =
+      outOfStore "home/.config/zed/settings.json";
   };
 
   home.activation.syncCodex = lib.hm.dag.entryAfter [ "writeBoundary" ] ''

@@ -1,0 +1,18 @@
+{
+  "base_keymap": "VSCode",
+  "buffer_font_size": 14,
+  "format_on_save": "on",
+  "preferred_line_length": 100,
+  "project_panel": {
+    "dock": "right"
+  },
+  "remove_trailing_whitespace_on_save": true,
+  "show_whitespaces": "all",
+  "tab_size": 2,
+  "theme": {
+    "mode": "system",
+    "light": "One Light",
+    "dark": "One Dark"
+  },
+  "ui_font_size": 14
+}
