@@ -27,7 +27,6 @@
     "diffEditor.ignoreTrimWhitespace": false,
     "docker.extension.enableComposeLanguageServer": false,
     "typescript.updateImportsOnFileMove.enabled": "always",
-    "workbench.colorTheme": "Aura Soft Dark",
     "editor.renderWhitespace": "all",
     "github.copilot.enable": {
         "*": true
@@ -78,5 +77,6 @@
         "Starlark",
         "worktrees"
     ],
-    "moonbit.ai.telemetry": "on"
+    "moonbit.ai.telemetry": "on",
+    "workbench.colorTheme": "Panda Syntax"
 }
