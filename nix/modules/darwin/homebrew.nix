@@ -13,6 +13,7 @@
       "chatgpt-atlas"
       "codex"
       "codex-app"
+      "dbeaver-community"
       "discord"
       "docker-desktop"
       "google-chrome"
