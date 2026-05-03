@@ -8,7 +8,6 @@ This repository is a dotfiles source of truth managed with `home-manager` and `n
 
 - `sudo nix run github:LnL7/nix-darwin -- switch --flake .#01-mu` — first macOS apply via `nix-darwin`.
 - `darwin-rebuild switch --flake .#01-mu` — apply the macOS system and `home-manager` config.
-- `home-manager switch --flake .#01-mu` — apply the user-level config only.
 
 There is no build system. Validate changes by reloading the target app (e.g., restart WezTerm, reopen Neovim) and confirming expected behavior.
 When adding new managed files, wire them into the relevant Nix module before applying the flake.
