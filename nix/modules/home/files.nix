@@ -3,7 +3,7 @@ let
   dotfilesRoot = "${config.home.homeDirectory}/ghq/github.com/01-mu/dotfiles";
   outOfStore = relativePath:
     config.lib.file.mkOutOfStoreSymlink "${dotfilesRoot}/${relativePath}";
-  codexSource = "${dotfilesRoot}/codex/.codex";
+  codexSource = "${dotfilesRoot}/home/.codex";
   codexRsyncExcludes = [
     "auth.json"
     ".codex-global-state.json*"

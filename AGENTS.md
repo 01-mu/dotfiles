@@ -2,7 +2,7 @@
 
 ## Project Structure & Module Organization
 
-This repository is a dotfiles source of truth managed with `home-manager` and `nix-darwin` on macOS. Put files that should land in `$HOME` under `home/`, mirroring their target paths. Keep Nix code under `nix/`, with `flake.nix` at the repo root and modules under `nix/modules/`. Keep Codex-specific assets under `codex/`, shared automation under `scripts/`, and platform-specific notes or configs under `windows/`.
+This repository is a dotfiles source of truth managed with `home-manager` and `nix-darwin` on macOS. Put files that should land in `$HOME` under `home/`, mirroring their target paths. Keep Nix code under `nix/`, with `flake.nix` at the repo root and modules under `nix/modules/`. Keep shared automation under `scripts/`, and platform-specific notes or configs under `windows/`.
 
 ## Build, Test, and Development Commands
 
@@ -25,4 +25,4 @@ There are no automated tests in this repository. Do lightweight manual checks re
 
 ## Notes
 
-Global agent policies live under `codex/.codex/AGENTS.md`. Keep this file focused on repository-specific guidance.
+Global agent policies live under `home/.codex/AGENTS.md`. Keep this file focused on repository-specific guidance.

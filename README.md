@@ -31,9 +31,8 @@ Package ownership is split by responsibility:
 
 ## Layout
 
-- `home/` mirrors files that land in `$HOME`, such as `.zshrc`, `.vimrc`, `.config/...`, and VS Code metadata.
+- `home/` mirrors files that land in `$HOME`, such as `.zshrc`, `.vimrc`, `.config/...`, VS Code metadata, and Codex settings.
 - `nix/` contains the Nix modules used by `flake.nix`.
-- `codex/` keeps Codex-specific policies, prompts, rules, and skills.
 - `windows/` keeps Windows-specific setup files.
 
 ## ghq
@@ -49,7 +48,7 @@ Clone with `ghq get`, then move to a repo under `$(ghq root)`.
 
 ## Codex
 
-Home Manager syncs repository-managed files from `codex/.codex/` into `~/.codex/`.
+Home Manager syncs repository-managed files from `home/.codex/` into `~/.codex/`.
 Runtime files, caches, secrets, and machine-local Codex state stay only under `~/.codex/`.
 
 ### Safe wrapper
