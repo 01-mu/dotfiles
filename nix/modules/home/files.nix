@@ -43,7 +43,6 @@ in
   home.stateVersion = "24.11";
 
   home.file = {
-    ".zshrc".source = outOfStore "home/.zshrc";
     ".vimrc".source = outOfStore "home/.vimrc";
 
     ".config/git/config".source = outOfStore "home/.config/git/config";

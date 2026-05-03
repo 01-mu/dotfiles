@@ -98,10 +98,6 @@ function chpwd() {
 # Add codex-safe to PATH
 export PATH="$HOME/.codex/bin:$PATH"
 
-# initialize zoxide(= z command)
-if command -v zoxide >/dev/null 2>&1; then
-  eval "$(zoxide init zsh)"
-fi
 #--------------------------------------------------------------------------------
 # Alias
 #--------------------------------------------------------------------------------
