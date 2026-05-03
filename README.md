@@ -31,10 +31,9 @@ Package ownership is split by responsibility:
 
 ## Layout
 
-- `home/` mirrors files that land in `$HOME`, such as `.zshrc`, `.vimrc`, and `.config/...`.
+- `home/` mirrors files that land in `$HOME`, such as `.zshrc`, `.vimrc`, `.config/...`, and VS Code metadata.
 - `nix/` contains the Nix modules used by `flake.nix`.
 - `codex/` keeps Codex-specific policies, prompts, rules, and skills.
-- `vscode/` keeps editor metadata such as `extensions.txt`.
 - `windows/` keeps Windows-specific setup files.
 
 ## ghq
