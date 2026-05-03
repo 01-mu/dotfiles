@@ -13,7 +13,7 @@ cd "$(ghq root)/github.com/01-mu/dotfiles"
 First switch:
 
 ```shell
-./scripts/bootstrap/mac.sh
+sudo nix run github:LnL7/nix-darwin -- switch --flake .#01-mu
 ```
 
 Later switches:
@@ -68,12 +68,6 @@ Optional checks:
 ```shell
 codex execpolicy check --pretty --rules ~/.codex/rules/policy-deny.rules -- sudo ls
 sandbox-exec -f ~/.codex/sandbox/deny-secrets.sb cat .env
-```
-
-## mac bootstrap
-
-```shell
-./scripts/bootstrap/mac.sh
 ```
 
 Windows: see `windows/README.md`.
